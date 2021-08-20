@@ -1,0 +1,1640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Use Cases for In-Network Computing</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents">
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
+<link href="#rfc.section.2" rel="Chapter" title="2 Terminology">
+<link href="#rfc.section.3" rel="Chapter" title="3 Taxonomy">
+<link href="#rfc.section.4" rel="Chapter" title="4 Industrial Use Cases">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 IIoT Network Scenario">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 In-Network Control / Time-sensitive applications">
+<link href="#rfc.section.4.2.1" rel="Chapter" title="4.2.1 Description">
+<link href="#rfc.section.4.2.2" rel="Chapter" title="4.2.2 Characterization">
+<link href="#rfc.section.4.2.3" rel="Chapter" title="4.2.3 Existing Solutions">
+<link href="#rfc.section.4.2.4" rel="Chapter" title="4.2.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.4.2.5" rel="Chapter" title="4.2.5 Requirements">
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Large Volume Applications">
+<link href="#rfc.section.4.3.1" rel="Chapter" title="4.3.1 Description">
+<link href="#rfc.section.4.3.2" rel="Chapter" title="4.3.2 Characterization">
+<link href="#rfc.section.4.3.3" rel="Chapter" title="4.3.3 Existing Solutions">
+<link href="#rfc.section.4.3.4" rel="Chapter" title="4.3.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.4.3.5" rel="Chapter" title="4.3.5 Requirements">
+<link href="#rfc.section.4.4" rel="Chapter" title="4.4 Industrial Safety">
+<link href="#rfc.section.4.4.1" rel="Chapter" title="4.4.1 Description">
+<link href="#rfc.section.4.4.2" rel="Chapter" title="4.4.2 Characterization">
+<link href="#rfc.section.4.4.3" rel="Chapter" title="4.4.3 Existing Solutions">
+<link href="#rfc.section.4.4.4" rel="Chapter" title="4.4.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.4.4.5" rel="Chapter" title="4.4.5 Requirements">
+<link href="#rfc.section.5" rel="Chapter" title="5 Immersive Experiences">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Mobile Application Offloading">
+<link href="#rfc.section.5.1.1" rel="Chapter" title="5.1.1 Description">
+<link href="#rfc.section.5.1.2" rel="Chapter" title="5.1.2 Characterization">
+<link href="#rfc.section.5.1.3" rel="Chapter" title="5.1.3 Existing Solutions">
+<link href="#rfc.section.5.1.4" rel="Chapter" title="5.1.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.5.1.5" rel="Chapter" title="5.1.5 Requirements">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Extended Reality (XR)">
+<link href="#rfc.section.5.2.1" rel="Chapter" title="5.2.1 Description">
+<link href="#rfc.section.5.2.2" rel="Chapter" title="5.2.2 Characterization">
+<link href="#rfc.section.5.2.3" rel="Chapter" title="5.2.3 Existing Solutions">
+<link href="#rfc.section.5.2.4" rel="Chapter" title="5.2.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.5.2.5" rel="Chapter" title="5.2.5 Requirements">
+<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Personalised and interactive performing arts">
+<link href="#rfc.section.5.3.1" rel="Chapter" title="5.3.1 Description">
+<link href="#rfc.section.5.3.2" rel="Chapter" title="5.3.2 Characterization">
+<link href="#rfc.section.5.3.3" rel="Chapter" title="5.3.3 Existing solutions">
+<link href="#rfc.section.5.3.4" rel="Chapter" title="5.3.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.5.3.5" rel="Chapter" title="5.3.5 Requirements">
+<link href="#rfc.section.6" rel="Chapter" title="6 Infrastructure Services">
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Distributed AI">
+<link href="#rfc.section.6.1.1" rel="Chapter" title="6.1.1 Description">
+<link href="#rfc.section.6.1.2" rel="Chapter" title="6.1.2 Characterization">
+<link href="#rfc.section.6.1.3" rel="Chapter" title="6.1.3 Existing Solutions">
+<link href="#rfc.section.6.1.4" rel="Chapter" title="6.1.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.6.1.5" rel="Chapter" title="6.1.5 Requirements">
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Content Delivery Networks">
+<link href="#rfc.section.6.2.1" rel="Chapter" title="6.2.1 Description">
+<link href="#rfc.section.6.2.2" rel="Chapter" title="6.2.2 Characterization">
+<link href="#rfc.section.6.2.3" rel="Chapter" title="6.2.3 Existing Solutions">
+<link href="#rfc.section.6.2.4" rel="Chapter" title="6.2.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.6.2.5" rel="Chapter" title="6.2.5 Requirements">
+<link href="#rfc.section.6.3" rel="Chapter" title="6.3 CFaaS">
+<link href="#rfc.section.6.3.1" rel="Chapter" title="6.3.1 Description">
+<link href="#rfc.section.6.3.2" rel="Chapter" title="6.3.2 Characterization">
+<link href="#rfc.section.6.3.3" rel="Chapter" title="6.3.3 Existing Solutions">
+<link href="#rfc.section.6.3.4" rel="Chapter" title="6.3.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.6.3.5" rel="Chapter" title="6.3.5 Requirements">
+<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Virtual Networks Programming">
+<link href="#rfc.section.6.4.1" rel="Chapter" title="6.4.1 Description">
+<link href="#rfc.section.6.4.2" rel="Chapter" title="6.4.2 Characterization">
+<link href="#rfc.section.6.4.3" rel="Chapter" title="6.4.3 Existing Solutions">
+<link href="#rfc.section.6.4.4" rel="Chapter" title="6.4.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.6.4.5" rel="Chapter" title="6.4.5 Requirements">
+<link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations">
+<link href="#rfc.section.8" rel="Chapter" title="8 IANA Considerations">
+<link href="#rfc.section.9" rel="Chapter" title="9 Conclusion">
+<link href="#rfc.section.10" rel="Chapter" title="10 List of Use Case Contributors">
+<link href="#rfc.references" rel="Chapter" title="11 References">
+<link href="#rfc.references.1" rel="Chapter" title="11.1 Normative References">
+<link href="#rfc.references.2" rel="Chapter" title="11.2 Informative References">
+<link href="#rfc.authors" rel="Chapter">
+
+
+  <meta name="generator" content="xml2rfc version 2.44.0 - https://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Kunze, I., Wehrle, K., Trossen, D., Montpetit, M., and X. de Foy" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-coinrg-use-cases-00" />
+  <meta name="dct.issued" scheme="ISO8601" content="2021-20" />
+  <meta name="dct.abstract" content="Computing in the Network (COIN) comes with the prospect of deploying processing functionality on networking devices, such as switches and network interface cards.  While such functionality can be beneficial in several contexts, it has to be carefully placed into the context of the general Internet communication.  This document discusses some use cases to demonstrate how real applications can benefit from COIN and to showcase essential requirements that have to be fulfilled by COIN applications. " />
+  <meta name="description" content="Computing in the Network (COIN) comes with the prospect of deploying processing functionality on networking devices, such as switches and network interface cards.  While such functionality can be beneficial in several contexts, it has to be carefully placed into the context of the general Internet communication.  This document discusses some use cases to demonstrate how real applications can benefit from COIN and to showcase essential requirements that have to be fulfilled by COIN applications. " />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+<td class="left">COINRG</td>
+<td class="right">I. Kunze</td>
+</tr>
+<tr>
+<td class="left">Internet-Draft</td>
+<td class="right">K. Wehrle</td>
+</tr>
+<tr>
+<td class="left">Intended status: Informational</td>
+<td class="right">RWTH Aachen</td>
+</tr>
+<tr>
+<td class="left">Expires: February 21, 2022</td>
+<td class="right">D. Trossen</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Huawei</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">M. Montpetit</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Concordia</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">X. de Foy</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">InterDigital Communications, LLC</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">August 20, 2021</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Use Cases for In-Network Computing<br />
+  <span class="filename">draft-irtf-coinrg-use-cases-00</span></p>
+  
+  <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
+<p>Computing in the Network (COIN) comes with the prospect of deploying processing functionality on networking devices, such as switches and network interface cards.  While such functionality can be beneficial in several contexts, it has to be carefully placed into the context of the general Internet communication.  This document discusses some use cases to demonstrate how real applications can benefit from COIN and to showcase essential requirements that have to be fulfilled by COIN applications.</p>
+<h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on February 21, 2022.</p>
+<h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
+<p>Copyright (c) 2021 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a>
+</li>
+<li>2.   <a href="#rfc.section.2">Terminology</a>
+</li>
+<li>3.   <a href="#rfc.section.3">Taxonomy</a>
+</li>
+<li>4.   <a href="#rfc.section.4">Industrial Use Cases</a>
+</li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">IIoT Network Scenario</a>
+</li>
+<li>4.2.   <a href="#rfc.section.4.2">In-Network Control / Time-sensitive applications</a>
+</li>
+<ul><li>4.2.1.   <a href="#rfc.section.4.2.1">Description</a>
+</li>
+<li>4.2.2.   <a href="#rfc.section.4.2.2">Characterization</a>
+</li>
+<li>4.2.3.   <a href="#rfc.section.4.2.3">Existing Solutions</a>
+</li>
+<li>4.2.4.   <a href="#rfc.section.4.2.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>4.2.5.   <a href="#rfc.section.4.2.5">Requirements</a>
+</li>
+</ul><li>4.3.   <a href="#rfc.section.4.3">Large Volume Applications</a>
+</li>
+<ul><li>4.3.1.   <a href="#rfc.section.4.3.1">Description</a>
+</li>
+<li>4.3.2.   <a href="#rfc.section.4.3.2">Characterization</a>
+</li>
+<li>4.3.3.   <a href="#rfc.section.4.3.3">Existing Solutions</a>
+</li>
+<li>4.3.4.   <a href="#rfc.section.4.3.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>4.3.5.   <a href="#rfc.section.4.3.5">Requirements</a>
+</li>
+</ul><li>4.4.   <a href="#rfc.section.4.4">Industrial Safety</a>
+</li>
+<ul><li>4.4.1.   <a href="#rfc.section.4.4.1">Description</a>
+</li>
+<li>4.4.2.   <a href="#rfc.section.4.4.2">Characterization</a>
+</li>
+<li>4.4.3.   <a href="#rfc.section.4.4.3">Existing Solutions</a>
+</li>
+<li>4.4.4.   <a href="#rfc.section.4.4.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>4.4.5.   <a href="#rfc.section.4.4.5">Requirements</a>
+</li>
+</ul></ul><li>5.   <a href="#rfc.section.5">Immersive Experiences</a>
+</li>
+<ul><li>5.1.   <a href="#rfc.section.5.1">Mobile Application Offloading</a>
+</li>
+<ul><li>5.1.1.   <a href="#rfc.section.5.1.1">Description</a>
+</li>
+<li>5.1.2.   <a href="#rfc.section.5.1.2">Characterization</a>
+</li>
+<li>5.1.3.   <a href="#rfc.section.5.1.3">Existing Solutions</a>
+</li>
+<li>5.1.4.   <a href="#rfc.section.5.1.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>5.1.5.   <a href="#rfc.section.5.1.5">Requirements</a>
+</li>
+</ul><li>5.2.   <a href="#rfc.section.5.2">Extended Reality (XR)</a>
+</li>
+<ul><li>5.2.1.   <a href="#rfc.section.5.2.1">Description</a>
+</li>
+<li>5.2.2.   <a href="#rfc.section.5.2.2">Characterization</a>
+</li>
+<li>5.2.3.   <a href="#rfc.section.5.2.3">Existing Solutions</a>
+</li>
+<li>5.2.4.   <a href="#rfc.section.5.2.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>5.2.5.   <a href="#rfc.section.5.2.5">Requirements</a>
+</li>
+</ul><li>5.3.   <a href="#rfc.section.5.3">Personalised and interactive performing arts</a>
+</li>
+<ul><li>5.3.1.   <a href="#rfc.section.5.3.1">Description</a>
+</li>
+<li>5.3.2.   <a href="#rfc.section.5.3.2">Characterization</a>
+</li>
+<li>5.3.3.   <a href="#rfc.section.5.3.3">Existing solutions</a>
+</li>
+<li>5.3.4.   <a href="#rfc.section.5.3.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>5.3.5.   <a href="#rfc.section.5.3.5">Requirements</a>
+</li>
+</ul></ul><li>6.   <a href="#rfc.section.6">Infrastructure Services</a>
+</li>
+<ul><li>6.1.   <a href="#rfc.section.6.1">Distributed AI</a>
+</li>
+<ul><li>6.1.1.   <a href="#rfc.section.6.1.1">Description</a>
+</li>
+<li>6.1.2.   <a href="#rfc.section.6.1.2">Characterization</a>
+</li>
+<li>6.1.3.   <a href="#rfc.section.6.1.3">Existing Solutions</a>
+</li>
+<li>6.1.4.   <a href="#rfc.section.6.1.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>6.1.5.   <a href="#rfc.section.6.1.5">Requirements</a>
+</li>
+</ul><li>6.2.   <a href="#rfc.section.6.2">Content Delivery Networks</a>
+</li>
+<ul><li>6.2.1.   <a href="#rfc.section.6.2.1">Description</a>
+</li>
+<li>6.2.2.   <a href="#rfc.section.6.2.2">Characterization</a>
+</li>
+<li>6.2.3.   <a href="#rfc.section.6.2.3">Existing Solutions</a>
+</li>
+<li>6.2.4.   <a href="#rfc.section.6.2.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>6.2.5.   <a href="#rfc.section.6.2.5">Requirements</a>
+</li>
+</ul><li>6.3.   <a href="#rfc.section.6.3">CFaaS</a>
+</li>
+<ul><li>6.3.1.   <a href="#rfc.section.6.3.1">Description</a>
+</li>
+<li>6.3.2.   <a href="#rfc.section.6.3.2">Characterization</a>
+</li>
+<li>6.3.3.   <a href="#rfc.section.6.3.3">Existing Solutions</a>
+</li>
+<li>6.3.4.   <a href="#rfc.section.6.3.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>6.3.5.   <a href="#rfc.section.6.3.5">Requirements</a>
+</li>
+</ul><li>6.4.   <a href="#rfc.section.6.4">Virtual Networks Programming</a>
+</li>
+<ul><li>6.4.1.   <a href="#rfc.section.6.4.1">Description</a>
+</li>
+<li>6.4.2.   <a href="#rfc.section.6.4.2">Characterization</a>
+</li>
+<li>6.4.3.   <a href="#rfc.section.6.4.3">Existing Solutions</a>
+</li>
+<li>6.4.4.   <a href="#rfc.section.6.4.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>6.4.5.   <a href="#rfc.section.6.4.5">Requirements</a>
+</li>
+</ul></ul><li>7.   <a href="#rfc.section.7">Security Considerations</a>
+</li>
+<li>8.   <a href="#rfc.section.8">IANA Considerations</a>
+</li>
+<li>9.   <a href="#rfc.section.9">Conclusion</a>
+</li>
+<li>10.   <a href="#rfc.section.10">List of Use Case Contributors</a>
+</li>
+<li>11.   <a href="#rfc.references">References</a>
+</li>
+<ul><li>11.1.   <a href="#rfc.references.1">Normative References</a>
+</li>
+<li>11.2.   <a href="#rfc.references.2">Informative References</a>
+</li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a>
+</li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1">
+<a href="#rfc.section.1">1.</a> <a href="#intro" id="intro">Introduction</a>
+</h1>
+<p id="rfc.section.1.p.1">The Internet is a best-effort network that offers limited guarantees regarding the timely and successful transmission of packets.  Data manipulation and protocol functionality is generally provided by the end-hosts while the network is kept simple and only intended as a &#8220;store and forward&#8221; packet facility.  This design-choice is suitable for a wide variety of applications and has helped in the rapid growth of the Internet.  However, there are several domains which, e.g., demand a number of strict performance guarantees that cannot be provided over regular best-effort networks or require more closed loop integration to manage data flows.  In this context, flexibly distributing the computation tasks across the network can help to achieve the guarantees and increase the overall performance.</p>
+<p id="rfc.section.1.p.2">However, different domains and different applications have different requirements and it remains unclear and the topic of academic research whether there can be a common solution to all COIN scenarios or if solutions have to be tailored to each scenario.</p>
+<p id="rfc.section.1.p.3">This document presents a series of applications and their requirements to illustrate the importance of COIN for realizing advanced applications.  Based on these, the draft aims to create a taxonomy of elementary COIN scenarios with the goal of guiding future research work.</p>
+<h1 id="rfc.section.2">
+<a href="#rfc.section.2">2.</a> <a href="#terms" id="terms">Terminology</a>
+</h1>
+<p id="rfc.section.2.p.1">Programmable network devices (PNDs): Network devices, such as network interface cards and switches, which are programmable, e.g., using P4 or other languages.</p>
+<p id="rfc.section.2.p.2">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in RFC 2119 <a href="#RFC2119" class="xref">[RFC2119]</a>.</p>
+<h1 id="rfc.section.3">
+<a href="#rfc.section.3">3.</a> <a href="#taxonomy" id="taxonomy">Taxonomy</a>
+</h1>
+<p id="rfc.section.3.p.1">The use cases in this draft aim at outlining the specific capabilities that in-networking capabilities may bring to their realization.  To attain this goal, we will use the following taxonomy to describe each of the use cases:</p>
+<p></p>
+
+<ol>
+<li>Description: explanation of the use case behavior</li>
+<li>Characterization: explanation of the services that are being realized and the semantics of interactions in the use case</li>
+<li>Existing solutions: if existing, outline current methods of realizing the use case</li>
+<li>Opportunities and research questions for COIN: outline how PNDs may support or improve on the use case case in terms of performance and other metrics and state essential questions that are suitable for guiding research.</li>
+<li>Requirements: describe the requirements for any solutions that may need development along the opportunities outlined in item 4</li>
+</ol>
+<h1 id="rfc.section.4">
+<a href="#rfc.section.4">4.</a> <a href="#industrialUseCases" id="industrialUseCases">Industrial Use Cases</a>
+</h1>
+<p id="rfc.section.4.p.1">The industrial domain is characterized by diverse sets of requirements which often cannot be provided over regular best-effort networks.  Consequently, there is a large number of specialized applications and protocols designed to give the required strict performance guarantees, e.g., regarding real-time capabilities.  Time-Sensitive-Networking <a href="#TSN" class="xref">[TSN]</a> as an enhancement to the standard Ethernet, e.g., tries to achieve these requirements on the link layer by statically reserving shares of the bandwidth.  In the Industrial Internet of Things (IIoT), however, more and more parts of the industrial production domain are interconnected.  This increases the complexity of the industrial networks, makes them more dynamic, and creates more diverse sets of requirements.  In these scenarios, solutions on the link layer alone are not sufficient.</p>
+<p id="rfc.section.4.p.2">The challenge is to develop concepts that can satisfy the dynamic performance requirements of modern industrial networks.  COIN presents a promising starting point because it allows to flexibly distribute computation tasks across the network which can help to manage dynamic changes.  As specifying general requirements for the industrial production domain is difficult due to the mentioned diversity, this document next characterizes and analyzes different scenarios to showcase potential requirements for the industrial production domain.</p>
+<h2 id="rfc.section.4.1">
+<a href="#rfc.section.4.1">4.1.</a> <a href="#scenario" id="scenario">IIoT Network Scenario</a>
+</h2>
+<p id="rfc.section.4.1.p.1">Common components of the IIoT can be divided into three categories as illustrated in <a href="#overviewPicture" class="xref">Figure 1</a>.  Following <a href="#I-D.mcbride-edge-data-discovery-overview" class="xref">[I-D.mcbride-edge-data-discovery-overview]</a>, EDGE DEVICES, such as sensors and actuators, constitute the boundary between the physical and digital world.  They communicate the current state of the physical world to the digital world by transmitting sensor data or let the digital world interact with the physical world by executing actions after receiving (simple) control information.  The processing of the sensor data and the creation of the control information is done on COMPUTING DEVICES.  They range from small-powered controllers close to the EDGE DEVICES, to more powerful edge or remote clouds in larger distances.  The connection between the EDGE and COMPUTING DEVICES is established by NETWORKING DEVICES.  In the industrial domain, they range from standard devices, e.g., typical Ethernet switches, which can interconnect all Ethernet-capable hosts, to proprietary equipment with proprietary protocols only supporting hosts of specific vendors.</p>
+<div id="rfc.figure.1"></div>
+<div id="overviewPicture"></div>
+<pre>
+ -------- 
+ |Sensor| ------------|              ~~~~~~~~~~~~      ------------
+ --------       -------------        { Internet } --- |Remote Cloud|
+    .           |Access Point|---    ~~~~~~~~~~~~      ------------
+ --------       -------------   |          |
+ |Sensor| ----|        |        |          |
+ --------     |        |       --------    |
+    .         |        |       |Switch| ----------------------
+    .         |        |       --------                       |
+    .         |        |                   ------------       |
+ ----------   |        |----------------- | Controller |      |
+ |Actuator| ------------                   ------------       |   
+ ----------   |    --------                            ------------
+    .         |----|Switch|---------------------------| Edge Cloud |
+ ----------        --------                            ------------
+ |Actuator|  ---------|
+ ----------             
+           
+|-----------|       |------------------|     |-------------------|
+ EDGE DEVICES        NETWORKING DEVICES        COMPUTING DEVICES
+</pre>
+<p class="figure">Figure 1: Industrial networks show a high level of heterogeneity.</p>
+<h2 id="rfc.section.4.2">
+<a href="#rfc.section.4.2">4.2.</a> <a href="#control" id="control">In-Network Control / Time-sensitive applications</a>
+</h2>
+<h3 id="rfc.section.4.2.1">
+<a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#description" id="description">Description</a>
+</h3>
+<p id="rfc.section.4.2.1.p.1">The control of physical processes and components of a production line is essential for the growing automation of production and ideally allows for a consistent quality level.  Traditionally, the control has been exercised by control software running on programmable logic controllers (PLCs) located directly next to the controlled process or component.  This approach is best-suited for settings with a simple model that is focused on a single or few controlled components.</p>
+<p id="rfc.section.4.2.1.p.2">Modern production lines and shop floors are characterized by an increasing amount of involved devices and sensors, a growing level of dependency between the different components, and more complex control models.  A centralized control is desirable to manage the large amount of available information which often has to be pre-processed or aggregated with other information before it can be used.  PLCs are not designed for this array of tasks and computations could theoretically be moved to more powerful devices.  These devices are no longer close to the controlled objects and induce additional latency.</p>
+<h3 id="rfc.section.4.2.2">
+<a href="#rfc.section.4.2.2">4.2.2.</a> <a href="#characterization" id="characterization">Characterization</a>
+</h3>
+<p id="rfc.section.4.2.2.p.1">A control process consists of two main components as illustrated in <a href="#processControl" class="xref">Figure 2</a>: a system under control and a controller.  In feedback control, the current state of the system is monitored, e.g., using sensors and the controller influences the system based on the difference between the current and the reference state to keep it close to this reference state.</p>
+<div id="rfc.figure.2"></div>
+<div id="processControl"></div>
+<pre>
+ reference
+   state      ------------        --------    Output
+----------&gt;  | Controller | ---&gt; | System | ----------&gt;
+           ^  ------------        --------       |
+           |                                     |
+           |   observed state                    |
+           |                    ---------        |
+            -------------------| Sensors | &lt;----- 
+                                ---------              
+</pre>
+<p class="figure">Figure 2: Simple feedback control model.</p>
+<p id="rfc.section.4.2.2.p.2">Apart from the control model, the quality of the control primarily depends on the timely reception of the sensor feedback, because the controller can only react if it is notified of changes in the system state.  Depending on the dynamics of the controlled system, the control can be subject to tight latency constraints, often in the single-digit millisecond range.  While low latencies are essential, there is an even greater need for stable and deterministic levels of latency, because controllers can generally cope with different levels of latency, if they are designed for them, but they are significantly challenged by dynamically changing or unstable latencies.  The unpredictable latency of the Internet exemplifies this problem if off-premise cloud platforms are included.</p>
+<h3 id="rfc.section.4.2.3">
+<a href="#rfc.section.4.2.3">4.2.3.</a> <a href="#existing-solutions" id="existing-solutions">Existing Solutions</a>
+</h3>
+<p id="rfc.section.4.2.3.p.1">Control functionality is traditionally executed on PLCs close to the machinery and these are only rarely upgraded.  Further, the PLCs require vendor-specific implementations and are often hard to update which makes such control processes inflexible and difficult to manage.  Moving computations to more freely programmable devices thus has the potential of significantly improving the flexibility.</p>
+<h3 id="rfc.section.4.2.4">
+<a href="#rfc.section.4.2.4">4.2.4.</a> <a href="#opportunities-and-research-questions-for-coin" id="opportunities-and-research-questions-for-coin">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.4.2.4.p.1">Control models, in general, can become involved but there is a variety of control algorithms that are composed of simple computations such as matrix multiplication.  These are supported by some PNDs and it is thus possible to compose simplified approximations of the more complex algorithms and deploy them in the network.  While the simplified versions induce a more inaccurate control, they allow for a quicker response and might be sufficient to operate a basic tight control loop while the overall control can still be exercised from the cloud.</p>
+<p id="rfc.section.4.2.4.p.2">Opportunities:</p>
+<p></p>
+
+<ul><li>Speed up control update rates by leveraging privileged position in the network</li></ul>
+<p id="rfc.section.4.2.4.p.4">The problem, however, is that networking devices typically only allow for integer precision computation while floating-point precision is needed by most control algorithms.  Additionally, computational capabilities vary for different available PNDs.  Yet, early approaches like <a href="#RUETH" class="xref">[RUETH]</a> and <a href="#VESTIN" class="xref">[VESTIN]</a> have already shown the general applicability of such ideas, but there are still a lot of open research questions not limited to the following:</p>
+<p id="rfc.section.4.2.4.p.5">Research Questions:</p>
+<p></p>
+
+<ul>
+<li>How can one derive the simplified versions of the overall controller? <ul>
+<li>How complex can they become?</li>
+<li>How can one take the limited computational precision of networking devices into account when making them?</li>
+</ul>
+</li>
+<li>How does one distribute the simplified versions in the network?</li>
+<li>How does the overall controller interact with the simplified versions?</li>
+</ul>
+<h3 id="rfc.section.4.2.5">
+<a href="#rfc.section.4.2.5">4.2.5.</a> <a href="#requirements" id="requirements">Requirements</a>
+</h3>
+<p id="rfc.section.4.2.5.p.1">Req 4.2.1: Control approaches MUST provide stable/deterministic latencies.</p>
+<p id="rfc.section.4.2.5.p.2">Req 4.2.2: Control approaches SHOULD provide low latencies.</p>
+<p id="rfc.section.4.2.5.p.3">Req 4.2.3: The interaction between the in-network control function and the overall controller SHOULD be explicit.</p>
+<p id="rfc.section.4.2.5.p.4">Req 4.2.4: Actions of the control approaches SHOULD be explicit to the overall controller.</p>
+<p id="rfc.section.4.2.5.p.5">Req 4.2.5: Actions of the control approaches MUST be overridable by the overall controller.</p>
+<h2 id="rfc.section.4.3">
+<a href="#rfc.section.4.3">4.3.</a> <a href="#filtering" id="filtering">Large Volume Applications</a>
+</h2>
+<h3 id="rfc.section.4.3.1">
+<a href="#rfc.section.4.3.1">4.3.1.</a> <a href="#FilteringDesc" id="FilteringDesc">Description</a>
+</h3>
+<p id="rfc.section.4.3.1.p.1">In the IIoT, processes and machines can be monitored more effectively resulting in more available information.  This data can be used to deploy machine learning (ML) techniques and consequently help to find previously unknown correlations between different components of the production which in turn helps to improve the overall production system.  Newly gained knowledge can be shared between different sites of the same company or even between different companies <a href="#PENNEKAMP" class="xref">[PENNEKAMP]</a>.</p>
+<p id="rfc.section.4.3.1.p.2">Traditional company infrastructure is neither equipped for the management and storage of such large amounts of data nor for the computationally expensive training of ML approaches.  Similar to the considerations in <a href="#control" class="xref">Section 4.2</a>, off-premise cloud platforms offer cost-effective solutions with a high degree of flexibility and scalability.  While the unpredictable latency of the Internet is only a subordinate problem for this use case, moving all data to off-premise locations primarily poses infrastructural challenges.</p>
+<h3 id="rfc.section.4.3.2">
+<a href="#rfc.section.4.3.2">4.3.2.</a> <a href="#FilteringChar" id="FilteringChar">Characterization</a>
+</h3>
+<p id="rfc.section.4.3.2.p.1">Processes in the industrial domain are monitored by distributed sensors which range from simple binary (e.g., light barriers) to sophisticated sensors measuring the system with varying degrees of resolution.  Sensors can further serve different purposes, as some might be used for time-critical process control while others are only used as redundant fallback platforms.  Overall, there is a high level of heterogeneity which makes managing the sensor output a challenging task.</p>
+<p id="rfc.section.4.3.2.p.2">Depending on the deployed sensors and the complexity of the observed system, the resulting overall data volume can easily be in the range of several Gbit/s <a href="#GLEBKE" class="xref">[GLEBKE]</a>.  Using off-premise clouds for managing the data requires uploading or streaming the growing volume of sensor data using the companies&#8217; Internet access which is typically limited to a few hundred of Mbit/s.  While large networking companies can simply upgrade their infrastructure, most industrial companies rely on traditional ISPs for their Internet access.  Higher access speeds are hence tied to higher costs and, above all, subject to the supply of the ISPs and consequently not always available.  A major challenge is thus to devise a methodology that is able to handle such amounts of data over limited access links.</p>
+<p id="rfc.section.4.3.2.p.3">Another aspect is that business data leaving the premise and control of the company further comes with security concerns, as sensitive information or valuable business secrets might be contained in it.  Typical security measures such as encrypting the data make in-network computing techniques hardly applicable as they typically work on unencrypted data.  Adding security to in-network computing approaches, either by adding functionality for handling encrypted data or devising general security measures, is thus an auspicious field for research which we describe in more detail in <a href="#sec_considerations" class="xref">Section 7</a>.</p>
+<h3 id="rfc.section.4.3.3">
+<a href="#rfc.section.4.3.3">4.3.3.</a> <a href="#existing-solutions-1" id="existing-solutions-1">Existing Solutions</a>
+</h3>
+<p id="rfc.section.4.3.3.p.1">Current approaches for handling such large amounts of information typically build upon stream processing frameworks such as Apache Flink.  While they allow for handling large volume applications, they are tied to performant server machines and upscaling the information density also requires a corresponding upscaling of the compute infrastructure.</p>
+<h3 id="rfc.section.4.3.4">
+<a href="#rfc.section.4.3.4">4.3.4.</a> <a href="#opportunities-and-research-questions-for-coin-1" id="opportunities-and-research-questions-for-coin-1">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.4.3.4.p.1">There are at least two concepts that might be suitable for reducing the amount of transmitted data in a meaningful way using in-network computing:</p>
+<p></p>
+
+<ol>
+<li>filtering out redundant or unnecessary data</li>
+<li>aggregating data by applying pre-processing steps within the network</li>
+</ol>
+<p id="rfc.section.4.3.4.p.3">Both concepts require detailed knowledge about the monitoring infrastructure at the factories and the purpose of the transmitted data.</p>
+<h4 id="rfc.section.4.3.4.1">
+<a href="#rfc.section.4.3.4.1">4.3.4.1.</a> <a href="#traffic-filtering" id="traffic-filtering">Traffic Filtering</a>
+</h4>
+<p id="rfc.section.4.3.4.1.p.1">Sensors are often set up redundantly, i.e., part of the collected data might also be redundant.  Moreover, they are often hard to configure or not configurable at all which is why their resolution or sampling frequency is often larger than required.  Consequently, it is likely that more data is transmitted than is needed or desired.</p>
+<p id="rfc.section.4.3.4.1.p.2">A trivial idea for reducing the amount of data is to filter out redundant or undesired data before it leaves the premise using simple traffic filters that are deployed in the on-premise network.  There are different approaches to how this topic can be tackled.  A first step would be to scale down the available sensor data to the data rate that is needed.  For example, if a sensor transmits with a frequency of 5 kHz, but the control entity only needs 1 kHz, only every fifth packet containing sensor data is let through.  Alternatively, sensor data could be filtered down to a lower frequency while the sensor value is in an uninteresting range, but let through with higher resolution once the sensor value range becomes interesting.  It is important that end-hosts are informed about the filtering so that they can distinguish between data loss and data filtered out on purpose.</p>
+<p id="rfc.section.4.3.4.1.p.3">Opportunities:</p>
+<p></p>
+
+<ul>
+<li>Semantic packet and stream filtering at line-rate</li>
+<li>Filtering based on packet header and payload, as well as multi-packet information</li>
+</ul>
+<p id="rfc.section.4.3.4.1.p.5">Challenges/Research Questions:</p>
+<p></p>
+
+<ul>
+<li>How can traffic filters be designed?</li>
+<li>How can traffic filters be coordinated and deployed?</li>
+<li>How can traffic filters be changed dynamically?</li>
+<li>How can traffic filtering be signaled to the end-hosts?</li>
+</ul>
+<h4 id="rfc.section.4.3.4.2">
+<a href="#rfc.section.4.3.4.2">4.3.4.2.</a> <a href="#preprocessing" id="preprocessing">In-Network (Pre-)Processing</a>
+</h4>
+<p id="rfc.section.4.3.4.2.p.1">There are manifold computations that can be performed on the sensor data in the cloud.  Some of them are very complex or need the complete sensor data during the computation, but there are also simpler operations which can be done on subsets of the overall dataset or earlier on the communication path as soon as all data is available.  One example is finding the maximum of all sensor values which can either be done iteratively at each intermediate hop or at the first hop, where all data is available.</p>
+<p id="rfc.section.4.3.4.2.p.2">Using expert knowledge about the exact computation steps and the concrete transmission path of the sensor data, simple computation steps can be deployed in the on-premise network to reduce the overall data volume and potentially speed up the processing time in the cloud.</p>
+<p id="rfc.section.4.3.4.2.p.3">Related work has already shown that in-network aggregation can help to improve the performance of distributed ML applications <a href="#SAPIO" class="xref">[SAPIO]</a>.  Investigating the applicability of stream data processing techniques to programmable networking devices is also interesting, because sensor data is usually streamed.  In this context, the following research questions can be of interest:</p>
+<p id="rfc.section.4.3.4.2.p.4">Opportunities:</p>
+<p></p>
+
+<ul>
+<li>Semantic data aggregation</li>
+<li>Computation across multiple packets and leveraging packet payload</li>
+</ul>
+<p id="rfc.section.4.3.4.2.p.6">Challenges/Research Questions:</p>
+<p></p>
+
+<ul>
+<li>Which (pre-)processing steps can be deployed in the network? <ul><li>How complex can they become?</li></ul>
+</li>
+<li>How can applications incorporate the (pre-)processing steps?</li>
+<li>How can the programming of the techniques be streamlined?</li>
+</ul>
+<h3 id="rfc.section.4.3.5">
+<a href="#rfc.section.4.3.5">4.3.5.</a> <a href="#requirements-1" id="requirements-1">Requirements</a>
+</h3>
+<p id="rfc.section.4.3.5.p.1">Req 4.3.1: Filters or preprocessors MUST conform to application-level syntax and semantics.</p>
+<p id="rfc.section.4.3.5.p.2">Req 4.3.2: Filters or preprocessors MAY leverage packet header and payload information</p>
+<p id="rfc.section.4.3.5.p.3">Req 4.3.3: Filters or preprocessors SHOULD be reconfigurable at run-time</p>
+<h2 id="rfc.section.4.4">
+<a href="#rfc.section.4.4">4.4.</a> <a href="#safety" id="safety">Industrial Safety</a>
+</h2>
+<h3 id="rfc.section.4.4.1">
+<a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#description-1" id="description-1">Description</a>
+</h3>
+<p id="rfc.section.4.4.1.p.1">Despite increasing automation in production processes, human workers are still often necessary.  Consequently, safety measures have a high priority to ensure that no human life is endangered.  In traditional factories, the regions of contact between humans and machines are well-defined and interactions are simple.  Simple safety measures like emergency switches at the working positions are enough to provide a decent level of safety.</p>
+<p id="rfc.section.4.4.1.p.2">Modern factories are characterized by increasingly dynamic and complex environments with new interaction scenarios between humans and robots.  Robots can either directly assist humans or perform tasks autonomously.  The intersect between the human working area and the robots grows and it is harder for human workers to fully observe the complete environment.</p>
+<p id="rfc.section.4.4.1.p.3">Additional safety measures are essential to prevent accidents and support humans in observing the environment.  The increased availability of sensor data and the detailed monitoring of the factories can help to build additional safety measures if the corresponding data is collected early at the correct position.</p>
+<h3 id="rfc.section.4.4.2">
+<a href="#rfc.section.4.4.2">4.4.2.</a> <a href="#characterization-1" id="characterization-1">Characterization</a>
+</h3>
+<p id="rfc.section.4.4.2.p.1">Industrial safety measures are typically hardware solutions because they have to pass rigorous testing before they are certified and deployment-ready.  Standard measures include safety switches and light barriers.  Additionally, the working area can be explicitly divided into &#8216;contact&#8217; and &#8216;safe&#8217; areas, indicating when workers have to watch out for interactions with machinery.</p>
+<p id="rfc.section.4.4.2.p.2">These measures are static solutions, potentially relying on specialized hardware, and are challenged by the increased dynamics of modern factories where the factory configuration can be changed on demand.  Software solutions offer higher flexibility as they can dynamically respect new information gathered by the sensor systems, but in most cases they cannot give guaranteed safety.  Yet, it is worthwhile to investigate whether such solutions can introduce additional safety measures.</p>
+<h3 id="rfc.section.4.4.3">
+<a href="#rfc.section.4.4.3">4.4.3.</a> <a href="#existing-solutions-2" id="existing-solutions-2">Existing Solutions</a>
+</h3>
+<p id="rfc.section.4.4.3.p.1">Note: Will be added later.</p>
+<h3 id="rfc.section.4.4.4">
+<a href="#rfc.section.4.4.4">4.4.4.</a> <a href="#opportunities-and-research-questions-for-coin-2" id="opportunities-and-research-questions-for-coin-2">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.4.4.4.p.1">Software-based solutions can take advantage of the large amount of available sensor data.  Different safety indicators within the production hall can be combined within the network so that programmable networking devices can give early responses if a potential safety breach is detected.  A rather simple possibility could be to track the positions of human workers and robots.  Whenever a robot gets too close to a human in a non-working area or if a human enters a defined safety zone, robots are stopped to prevent injuries.  More advanced concepts could also include image data or combine arbitrary sensor data.</p>
+<p id="rfc.section.4.4.4.p.2">Opportunities:</p>
+<p></p>
+
+<ul><li>Early emergency reactions based on diverse sensor feedback</li></ul>
+<p id="rfc.section.4.4.4.p.4">Research Questions:</p>
+<p></p>
+
+<ul>
+<li>Which additional safety measures can be provided? <ul><li>Do these measures actually improve safety?</li></ul>
+</li>
+<li>Which sensor information can be combined and how?</li>
+</ul>
+<h3 id="rfc.section.4.4.5">
+<a href="#rfc.section.4.4.5">4.4.5.</a> <a href="#requirements-2" id="requirements-2">Requirements</a>
+</h3>
+<p id="rfc.section.4.4.5.p.1">Req 4.4.1: COIN-based safety measures MUST NOT degrade existing safety measures.</p>
+<p id="rfc.section.4.4.5.p.2">Req 4.4.2: COIN-based safety measures MAY enhance existing safety measures.</p>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> <a href="#immersiveExperiences" id="immersiveExperiences">Immersive Experiences</a>
+</h1>
+<h2 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> <a href="#mobileAppOffload" id="mobileAppOffload">Mobile Application Offloading</a>
+</h2>
+<h3 id="rfc.section.5.1.1">
+<a href="#rfc.section.5.1.1">5.1.1.</a> <a href="#description-2" id="description-2">Description</a>
+</h3>
+<p id="rfc.section.5.1.1.p.1">The scenario can be exemplified in an immersive gaming application, where a single user plays a game using a VR headset.  The headset hosts functions that &#8220;display&#8221; frames to the user, as well as the functions for VR content processing and frame rendering combining with input data received from sensors in the VR headset.  Once this application is partitioned into micro-services and deployed in an app-centric execution environment, only the &#8220;display&#8221; micro-service is left in the headset, while the compute intensive real-time VR content processing micro-services can be offloaded to a nearby resource rich home PC, for a better execution (faster and possibly higher resolution generation).</p>
+<h3 id="rfc.section.5.1.2">
+<a href="#rfc.section.5.1.2">5.1.2.</a> <a href="#characterization-2" id="characterization-2">Characterization</a>
+</h3>
+<p id="rfc.section.5.1.2.p.1">Partitioning an application into micro-services allows for denoting the application as a collection of functions for a flexible composition and a distributed execution, e.g., most functions of a mobile application can be categorized into any of three, &#8220;receiving&#8221;, &#8220;processing&#8221; and &#8220;displaying&#8221; function groups.</p>
+<p id="rfc.section.5.1.2.p.2">Any device may realize one or more of the micro-services of an application and expose them to the execution environment.  When the micro-service sequence is executed on a single device, the outcome is what you see today as applications running on mobile devices.  However, the execution of functions may be moved to other (e.g., more suitable) devices which have exposed the corresponding micro-services to the environment.  The result of the latter is flexible mobile function offloading, for possible reduction of power consumption (e.g., offloading CPU intensive process functions to a remote server) or for improved end user experience (e.g., moving display functions to a nearby smart TV).</p>
+<p><a href="#figureAppOffload" class="xref">Figure 3</a> shows one realization of the above scenario, where a &#8216;DPR app&#8217; is running on a mobile device (containing the partitioned Display(D), Process(P) and Receive(R) micro services) over an SDN network.  The packaged applications are made available through a localized &#8216;playstore server&#8217;.  The application installation is realized as a &#8216;service deployment&#8217; process, combining the local app installation with a distributed micro-service deployment (and orchestration) on most suitable AppCentreS (&#8216;processing server&#8217;).</p>
+<div id="rfc.figure.3"></div>
+<div id="figureAppOffload"></div>
+<pre>
+                              +----------+ Processing Server
+            Mobile            | +------+ |  
+        +---------+          | |  P   | |
+        |   App   |          | +------+ |   
+        | +-----+ |          | +------+ |
+        | |D|P|R| |          | |  SR  | |
+        | +-----+ |          | +------+ |         Internet
+        | +-----+ |          +----------+            / 
+        | |  SR | |              |                  /
+        | +-----+ |            +----------+     +------+
+        +---------+           /|SDN Switch|_____|Border|
+                  +-------+ / +----------+     |  SR  |
+                  | 5GAN  |/       |           +------+
+                    +-------+        |
+      +---------+                   |    
+      |+-------+|               +----------+
+      ||Display||              /|SDN Switch| 
+      |+-------+|   +-------+ / +----------+
+      |+-------+|  /|WIFI AP|/              
+      ||   D   || / +-------+     +--+     
+      |+-------+|/                |SR|
+      |+-------+|                /+--+
+      ||  SR   ||            +---------+
+      |+-------+|            |Playstore|
+      +---------+            | Server  |
+            TV                +---------+
+
+</pre>
+<p class="figure">Figure 3: Application Function Offloading Example.</p>
+<p id="rfc.section.5.1.2.p.4">Such localized deployment could, for instance, be provided by a visiting site, such as a hotel or a theme park.  Once the &#8216;processing&#8217; micro-service is terminated on the mobile device, the &#8216;service routing&#8217; (SR) elements in the network routes requests to the previously deployed &#8216;processing&#8217; micro-service running on the processing server&#8217; AppCentre over an existing SDN network.  As an extension to the above scenarios, we can also envision that content from one processing micro-service may be distributed to more than one display micro-service, e.g., for multi/many-viewing scenarios.</p>
+<h3 id="rfc.section.5.1.3">
+<a href="#rfc.section.5.1.3">5.1.3.</a> <a href="#existing-solutions-3" id="existing-solutions-3">Existing Solutions</a>
+</h3>
+<p id="rfc.section.5.1.3.p.1">NOTE: material on solutions like ETSI MEC will be added here later</p>
+<h3 id="rfc.section.5.1.4">
+<a href="#rfc.section.5.1.4">5.1.4.</a> <a href="#opportunities-and-research-questions-for-coin-3" id="opportunities-and-research-questions-for-coin-3">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.5.1.4.p.1">Opportunities:</p>
+<p></p>
+
+<ul>
+<li>execution of app-level micro-services (service deployment in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+<li>supporting service-level routing of requests (service routing in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+<li>support the constraint-based selection of a specific service instance over others (constraint-based routing in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+</ul>
+<p id="rfc.section.5.1.4.p.3">Research Questions:</p>
+<p></p>
+
+<ul>
+<li>How to combine service-level orchestration frameworks with app-level packaging methods?</li>
+<li>How to reduce latencies involved in micro-service interactions where service instance locations may change quickly?</li>
+<li>How to signal constraints used for routing in a scalable manner?</li>
+<li>How to provide constraint-based routing decisions at packet forwarding speed?</li>
+<li>What in-network capabilities may support the execution of micro-services?</li>
+</ul>
+<h3 id="rfc.section.5.1.5">
+<a href="#rfc.section.5.1.5">5.1.5.</a> <a href="#requirements-3" id="requirements-3">Requirements</a>
+</h3>
+<p id="rfc.section.5.1.5.p.1">Req 5.1.1: Any app-centric execution environment MUST provide means for routing of service requests between resources in the distributed environment.</p>
+<p id="rfc.section.5.1.5.p.2">Req 5.1.2: Any app-centric execution environment MUST provide means for dynamically choosing the best possible micro-service sequence (i.e., chaining of micro-services) for a given application experience.  Means for discovering suitable micro-service SHOULD be provided.</p>
+<p id="rfc.section.5.1.5.p.3">Req 5.1.3: Any app-centric execution environment MUST provide means for pinning the execution of a specific micro-service to a specific resource instance in the distributed environment.</p>
+<p id="rfc.section.5.1.5.p.4">Req 5.1.4: Any app-centric execution environment SHOULD provide means for packaging micro-services for deployments in distributed networked computing environments.  The packaging MAY include any constraints regarding the deployment of service instances in specific network locations or compute resources.  Such packaging SHOULD conform to existing application deployment models, such as mobile application packaging, TOSCA orchestration templates or tar balls or combinations thereof.</p>
+<p id="rfc.section.5.1.5.p.5">Req 5.1.5: Any app-centric execution environment MUST provide means for real-time synchronization and consistency of distributed application states.</p>
+<h2 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> <a href="#XR" id="XR">Extended Reality (XR)</a>
+</h2>
+<h3 id="rfc.section.5.2.1">
+<a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#description-3" id="description-3">Description</a>
+</h3>
+<p id="rfc.section.5.2.1.p.1">Virtual Reality (VR) and Augmented Reality (AR) taken together as Extended Reality (XR) are at the center of a number of advances in interactive technologies.  While initially associated with gaming and entertainment, XR applications now include remote diagnosis, maintenance, telemedicine, manufacturing and assembly, autonomous systems, smart cities, and immersive classrooms.</p>
+<h3 id="rfc.section.5.2.2">
+<a href="#rfc.section.5.2.2">5.2.2.</a> <a href="#characterization-3" id="characterization-3">Characterization</a>
+</h3>
+<p id="rfc.section.5.2.2.p.1">XR is one example of the Multisource-Multidestination Problem that combines video, haptics, and tactile experiences in interactive or networked multi-party and social interactions.  Thus, XR is difficult to deliver with a client-server cloud-based solution as it requires a combination of: stream synchronization, low delays and delay variations, means to recover from losses and optimized caching and rendering as close as possible to the user at the network edge.  Many XR services that involve video holography and haptics, require very low delay or generate large amounts of data, both requiring a careful look at data filtering and reduction, functional distribution and partitioning.  Hence, XR uses recent advances in in-network programming, distributed networks, orchestration and resource discovery to support the XR advanced immersive requirements.  It is important to note that the use of in-network computing for XR does not imply a specific protocol but targets an architecture enabling the deployment of the services.  This includes computing in the nodes from content source to destination.</p>
+<h3 id="rfc.section.5.2.3">
+<a href="#rfc.section.5.2.3">5.2.3.</a> <a href="#existing-solutions-4" id="existing-solutions-4">Existing Solutions</a>
+</h3>
+<p id="rfc.section.5.2.3.p.1">Related XR or XR-enabling solutions using in-network computation or related technologies include:</p>
+<p></p>
+
+<ul>
+<li>Enabling Scalable Edge Video Analytics with Computing-In-Network (Jun Chen Jiang of the University of Chicago): this work brings a periodical re-profiling to adapt the video pipeline to the dynamic video content that is a characteristic of XR.  The implication is that &#8220;need tight network-app coupling&#8221; for real time video analytics.</li>
+<li>VR journalism, interactive VR movies and meetings in cyberspace (many projects PBS, MIT interactive documentary lab, Huawei research - references to be provided): typical VR is not made for multiparty and these applications require a tight coupling of the local and remote rendering and data capture and combinations of cloud (for more static information) and edge (for dynamic content).</li>
+<li>Local rendering of holographic content using near field computation (heritage from advances cockpit interactions - looking for non military papers): a lot has been said recently of the large amounts of data necessary to transmit and use holographic imagery in communications. Transmitting the near field information and rendering the image locally allows to reduce the data rates by 1 or 2.</li>
+<li>ICE-AR <a href="#ICE" class="xref">[ICE]</a> project at UCLA (Jeff Burke): while this project is a showcase of the NDN network artchitecture it also uses a lof of edge-cloud capabilities for example for inter-server games and advanced video applications.</li>
+</ul>
+<h3 id="rfc.section.5.2.4">
+<a href="#rfc.section.5.2.4">5.2.4.</a> <a href="#opportunities-and-research-questions-for-coin-4" id="opportunities-and-research-questions-for-coin-4">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.5.2.4.p.1">Opportunities:</p>
+<p id="rfc.section.5.2.4.p.2">In-network computing for XR profits from the heritage of extensive research in the past years on Information Centric Networking, Machine Learning, network telemetry, imaging and IoT as well as distributed security and in-network coding.  The opportunities include:</p>
+<p></p>
+
+<ul>
+<li>Reduced latency: the physical distance between the content cloud and the users must be short enough to limit the propagation delay to the 20 ms usually cited for XR applications; the use of local CPU and IoT devices for range of interest (RoI) detection and fynamic rendering may enable this.</li>
+<li>Video transmission: better transcoding and use of advanced context-based compression algorithms, pre-fetching and pre-caching and movement prediction not only in the cloud.</li>
+<li>Monitoring: telemetry is a major research topic for COIN and it enables to monitor and distribute the XR services.</li>
+<li>Network access: push some networking functions in the kernel space into the user space to enable the deployment of stream specific algorithms for congestion control and application-based load balancing based on machine learning and user data patterns.</li>
+<li>Functional decomposition: functional decomposition, localization and discovery of computing and storage resources in the network.  But it is not only finding the best resources but qualifying those resources in terms of reliability especially for mission critical services in XR (medicine for example). This could include intelligence services.</li>
+</ul>
+<p id="rfc.section.5.2.4.p.4">Research Questions:</p>
+<p id="rfc.section.5.2.4.p.5">There is a need for more research resource allocation problems at the edge to enable interactive operation and quality of experience in VR.  These include multi-variate and heterogeneous goal optimization problems requiring advanced analysis.  Image rendering and video processing in XR leverages different HW capabilities combinations of CPU and GPU.  Research questions include:</p>
+<p></p>
+
+<ul>
+<li>Can current programmable network entities be sufficient to provide the speed required to provide and execute complex filtering operations that includes metadata analysis for complex and dynamic scene rendering?</li>
+<li>How can the interoperability of CPU/GPU be optimized to combine low level packet filteting with the higher layer processors needed for image processing and haptics?</li>
+<li>Can the use of joint learning algorithms across both data center and edge computers be used to create optimal functionality allocation and the creation of semi-permanent datasets and analytics for usage trending resulting in better localization of XR functions?</li>
+<li>Can COIN improve the dynamic distribution of control, forwarding and storage resources and related usage models in XR?</li>
+</ul>
+<h3 id="rfc.section.5.2.5">
+<a href="#rfc.section.5.2.5">5.2.5.</a> <a href="#requirements-4" id="requirements-4">Requirements</a>
+</h3>
+<p id="rfc.section.5.2.5.p.1">XR requirements include the need to provide real-time interactivity for immersive and increasingly mobile immersive applications with tactile and time-sensitive data and high bandwidth for high resolution images and local rendering for 3D images and holograms.  Since XR deals with personal information and potentially protected content XR must also provide a secure environment and ensure user privacy.<br> Additionally, the sheer amount of data needed for and generated by the XR applications can use recent trend analysis and mechanisms, including machine learning to find these trends and reduce the size of the data sets.  The requirements can be summarized as:</p>
+<p id="rfc.section.5.2.5.p.2">Req 5.2.1: Allow joint collaboration.</p>
+<p id="rfc.section.5.2.5.p.3">Req 5.2.2: Provide multi-views.</p>
+<p id="rfc.section.5.2.5.p.4">Req 5.2.3: Include extra streams dynamically for data intensive services, manufacturing and industrial processes.</p>
+<p id="rfc.section.5.2.5.p.5">Req 5.2.4: Enable multistream, multidevice, multidestination applications.</p>
+<p id="rfc.section.5.2.5.p.6">Req 5.2.5: Use new Internet Architectures at the edge for improved performance and performance management.</p>
+<p id="rfc.section.5.2.5.p.7">Req 5.2.6: Integrate with holography, 3D displays and image rendering processors.</p>
+<p id="rfc.section.5.2.5.p.8">Req 5.2.7: All the use of multicast distribution and processing as well as peer to peer distribution in bandwidth and capacity constrained environments.</p>
+<p id="rfc.section.5.2.5.p.9">Req 5.2.8: Evaluate the integration local and fog caching with cloud-based pre-rendering.</p>
+<p id="rfc.section.5.2.5.p.10">Req 5.2.9: Evaluate ML-based congestion control to manage XR sessions quality of service and to determine how to priortize data.</p>
+<p id="rfc.section.5.2.5.p.11">Req 5.2.10: Consider higher layer protocols optimization to reduce latency especially in data intensive applications at the edge.</p>
+<p id="rfc.section.5.2.5.p.12">Req 5.2.11: Provide trust, including blockchains and smart-contracts to enable secure community building across domains.</p>
+<p id="rfc.section.5.2.5.p.13">Req 5.2.12: Support nomadicity and mobility (link to mobile edge).</p>
+<p id="rfc.section.5.2.5.p.14">Req 5.2.13: Use 5G slicing to create independent session-driven processing/rendering.</p>
+<p id="rfc.section.5.2.5.p.15">Req 5.2.14: Provide performance optimization by data reduction, tunneling, session virtualization and loss protection.</p>
+<p id="rfc.section.5.2.5.p.16">Req 5.2.15: Use AI/ML for trend analysis and data reduction when appropriate.</p>
+<h2 id="rfc.section.5.3">
+<a href="#rfc.section.5.3">5.3.</a> <a href="#PerformingArts" id="PerformingArts">Personalised and interactive performing arts</a>
+</h2>
+<h3 id="rfc.section.5.3.1">
+<a href="#rfc.section.5.3.1">5.3.1.</a> <a href="#description-4" id="description-4">Description</a>
+</h3>
+<p id="rfc.section.5.3.1.p.1">This use case covers live productions of the performing arts where the performers and audience are in different physical locations.  The performance is conveyed to the audience through multiple networked streams which may be tailored to the requirements of individual audience members; and the performers receive live feedback from the audience.</p>
+<p id="rfc.section.5.3.1.p.2">There are two main aspects: i) to emulate as closely as possible the experience of live performances where the performers and audience are co-located in the same physical space, such as a theatre; and ii) to enhance traditional physical performances with features such as personalisation of the experience according to the preferences or needs of the audience members.</p>
+<p id="rfc.section.5.3.1.p.3">Examples of personalisation include:</p>
+<p></p>
+
+<ul>
+<li>viewpoint selection such as choosing a specific seat in the theatre or for more advanced positioning of the audience member&#8217;s viewpoint outside of the traditional seating - amongst, above or behind the performers (but within some limits which may be imposed by the performers or the director for artistic reasons);</li>
+<li>augmentation of the performance with subtitles, audio-description, actor-tagging, language translation, advertisements/product-placement, other enhancements/filters to make the performance accessible to disabled audience members (removal of flashing images for epileptics, alternative colour schemes for colour-blind audience members, etc.).</li>
+</ul>
+<h3 id="rfc.section.5.3.2">
+<a href="#rfc.section.5.3.2">5.3.2.</a> <a href="#characterization-4" id="characterization-4">Characterization</a>
+</h3>
+<p id="rfc.section.5.3.2.p.1">There are several chained functional entities which are candidates for in-network processing.</p>
+<p></p>
+
+<ul>
+<li>Performer aggregation and editing functions</li>
+<li>Distribution and encoding functions</li>
+<li>Personalisation functions <ul>
+<li>to select which of the existing streams should be forwarded to the audience member</li>
+<li>to augment streams with additional metadata such as subtitles</li>
+<li>to create new streams after processing existing ones: to interpolate between camera angles to create a new viewpoint or to render point clouds from the audience member&#8217;s chosen perspective</li>
+<li>to undertake remote rendering according to viewer position, e.g. creation of VR headset display streams according to audience head position - when this processing has been offloaded from the viewer&#8217;s end-system to the in-network function due to limited processing power in the end-system, or to limited network bandwidth to receive all of the individual streams to be processed.</li>
+</ul>
+</li>
+<li>Audience feedback sensor processing functions</li>
+<li>Audience feedback aggregation functions</li>
+</ul>
+<p id="rfc.section.5.3.2.p.3">These are candidates for in-network processing rather than being located in end-systems (at the performers&#8217; site, the audience members&#8217; premises or in a central cloud location) for several reasons:</p>
+<p></p>
+
+<ul>
+<li>personalisation of the performance to audience preferences and requirements makes it unfeasible for this to be done at the performer premises: it will require large amounts of processing power to process individual personalised streams as well as large amounts of network bandwidth to transmit personalised streams to each viewer.</li>
+<li>rendering of VR headset content to follow viewer head movements has an upper bound on lag to maintain viewer QoE.</li>
+<li>viewer devices may not have the processing-power to undertake the personalisation or the viewers&#8217; network may not have the capacity to receive all of the constituent streams to undertake the personalisation functions.</li>
+<li>there are strict latency requirements for the live and interactive aspects that require the deviation from the direct path between performers and audience is minimised, reducing the opportunity to leverage large-scale processing capabilities at centralised data-centres.</li>
+</ul>
+<h3 id="rfc.section.5.3.3">
+<a href="#rfc.section.5.3.3">5.3.3.</a> <a href="#existing-solutions-5" id="existing-solutions-5">Existing solutions</a>
+</h3>
+<p id="rfc.section.5.3.3.p.1">To be added.</p>
+<h3 id="rfc.section.5.3.4">
+<a href="#rfc.section.5.3.4">5.3.4.</a> <a href="#opportunities-and-research-questions-for-coin-5" id="opportunities-and-research-questions-for-coin-5">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.5.3.4.p.1">Opportunities:</p>
+<p></p>
+
+<ul><li>See Characterization.</li></ul>
+<p id="rfc.section.5.3.4.p.3">Research Questions:</p>
+<p></p>
+
+<ul>
+<li>Where should the aggregation, encoding and personalisation functions be located? Close to the performers or close to the audience members?</li>
+<li>How far away from the direct network path from performer to audience can they be located, considering the latency implications of path-stretch and the availability of processing capacity?</li>
+<li>How to achieve network synchronisation across multiple streams to allow for merging, audio-video interpolation and other cross-stream processing functions that require time synchronisation for the integrity of the output?</li>
+</ul>
+<h3 id="rfc.section.5.3.5">
+<a href="#rfc.section.5.3.5">5.3.5.</a> <a href="#requirements-5" id="requirements-5">Requirements</a>
+</h3>
+<p id="rfc.section.5.3.5.p.1">The chain of functions and propagation over the interconnecting network segments for performance capture, aggregation, distribution, personalisation, consumption, capture of audience response, feedback processing, aggregation, rendering should be achieved within an upper bound of latency (the tolerable amount is to be defined, but in the order of 100s of ms to mimic performers perceiving audience feedback, such as laugher or other emotional responses in a theatre setting).</p>
+<h1 id="rfc.section.6">
+<a href="#rfc.section.6">6.</a> <a href="#infrastructureServices" id="infrastructureServices">Infrastructure Services</a>
+</h1>
+<h2 id="rfc.section.6.1">
+<a href="#rfc.section.6.1">6.1.</a> <a href="#distributedAI" id="distributedAI">Distributed AI</a>
+</h2>
+<h3 id="rfc.section.6.1.1">
+<a href="#rfc.section.6.1.1">6.1.1.</a> <a href="#description-5" id="description-5">Description</a>
+</h3>
+<p id="rfc.section.6.1.1.p.1">There is a growing range of use cases demanding for the realization of AI capabilities among distributed endpoints.  Such demand may be driven by the need to increase overall computational power for large-scale problems.  Other solutions may desire the localization of reasoning logic, e.g., for deriving attributes that better preserve privacy of the utilized raw input data.</p>
+<h3 id="rfc.section.6.1.2">
+<a href="#rfc.section.6.1.2">6.1.2.</a> <a href="#characterization-5" id="characterization-5">Characterization</a>
+</h3>
+<p id="rfc.section.6.1.2.p.1">Examples for large-scale AI problems include biotechnology and astronomy related reasoning over massive amounts of observational input data.  Examples for localizing input data for privacy reasons include radar-like application for the development of topological mapping data based on (distributed) radio measurements at base stations (and possibly end devices), while the processing within radio access networks (RAN) already constitute a distributed AI problem to a certain extent albeit with little flexibility in distributing the execution of the AI logic.</p>
+<h3 id="rfc.section.6.1.3">
+<a href="#rfc.section.6.1.3">6.1.3.</a> <a href="#existing-solutions-6" id="existing-solutions-6">Existing Solutions</a>
+</h3>
+<p id="rfc.section.6.1.3.p.1">Reasoning frameworks, such as TensorFlow, may be utilized for the realization of the (distributed) AI logic, building on remote service invocation through protocols such as gRPC <a href="#GRPC" class="xref">[GRPC]</a> or MPI <a href="#MPI" class="xref">[MPI]</a> with the intention of providing an on-chip NPU (neural processor unit) like abstraction to the AI framework.</p>
+<p id="rfc.section.6.1.3.p.2">NOTE: material on solutions like ETSI MEC and 3GPP work will be added here later</p>
+<h3 id="rfc.section.6.1.4">
+<a href="#rfc.section.6.1.4">6.1.4.</a> <a href="#opportunities-and-research-questions-for-coin-6" id="opportunities-and-research-questions-for-coin-6">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.6.1.4.p.1">Opportunities:</p>
+<p></p>
+
+<ul>
+<li>supporting service-level routing of requests (service routing in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+<li>support the constraint-based selection of a specific service instance over others (constraint-based routing in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+<li>collective communication between multiple instances of AI services</li>
+</ul>
+<p id="rfc.section.6.1.4.p.3">Research Questions:</p>
+<p></p>
+
+<ul>
+<li>similar to use case in Section 5.1</li>
+<li>What are the communication patterns that may be supported by collective communication solutions?</li>
+<li>How to achieve scalable multicast delivery with rapidly changing receiver sets?</li>
+<li>What in-network capabilities may support the collective communication patterns found?</li>
+<li>How to provide a service routing capability that supports any invocation protocol (beyond HTTP)?</li>
+</ul>
+<h3 id="rfc.section.6.1.5">
+<a href="#rfc.section.6.1.5">6.1.5.</a> <a href="#requirements-6" id="requirements-6">Requirements</a>
+</h3>
+<p id="rfc.section.6.1.5.p.1">Req 6.1.1: Any app-centric execution environment MUST provide means to specify the constraints for placing (AI) execution logic in certain logical execution points (and their associated physical locations).</p>
+<p id="rfc.section.6.1.5.p.2">Req 6.1.2: Any app-centric execution environment MUST provide support for app/micro-service specific invocation protocols.</p>
+<h2 id="rfc.section.6.2">
+<a href="#rfc.section.6.2">6.2.</a> <a href="#CDNs" id="CDNs">Content Delivery Networks</a>
+</h2>
+<h3 id="rfc.section.6.2.1">
+<a href="#rfc.section.6.2.1">6.2.1.</a> <a href="#description-6" id="description-6">Description</a>
+</h3>
+<p id="rfc.section.6.2.1.p.1">Delivery of content to end users often relies on Content Delivery Networks (CDNs) storing said content closer to end users for latency reduced delivery with DNS-based indirection being utilized to serve the request on behalf of the origin server.</p>
+<h3 id="rfc.section.6.2.2">
+<a href="#rfc.section.6.2.2">6.2.2.</a> <a href="#characterization-6" id="characterization-6">Characterization</a>
+</h3>
+<p id="rfc.section.6.2.2.p.1">From the perspective of this draft, a CDN can be interpreted as a (network service level) application with distributed logic for distributing content from the origin server to the CDN ingress and further to the CDN replication points which ultimately serve the user-facing content requests.</p>
+<h3 id="rfc.section.6.2.3">
+<a href="#rfc.section.6.2.3">6.2.3.</a> <a href="#existing-solutions-7" id="existing-solutions-7">Existing Solutions</a>
+</h3>
+<p id="rfc.section.6.2.3.p.1">NOTE: material on solutions will be added here later</p>
+<p id="rfc.section.6.2.3.p.2">Studies such as those in <a href="#FCDN" class="xref">[FCDN]</a> have shown that content distribution at the level of named content, utilizing efficient (e.g., Layer 2) multicast for replication towards edge CDN nodes, can significantly increase the overall network and server efficiency.  It also reduces indirection latency for content retrieval as well as reduces required edge storage capacity by benefiting from the increased network efficiency to renew edge content more quickly against changing demand.</p>
+<h3 id="rfc.section.6.2.4">
+<a href="#rfc.section.6.2.4">6.2.4.</a> <a href="#opportunities-and-research-questions-for-coin-7" id="opportunities-and-research-questions-for-coin-7">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.6.2.4.p.1">Opportunities:</p>
+<p></p>
+
+<ul>
+<li>supporting service-level routing of requests (service routing in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+<li>support the constraint-based selection of a specific service instance over others (constraint-based routing in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+<li>supporting Layer 2 capabilities for multicast (compute interconnection and collective communication in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+</ul>
+<p id="rfc.section.6.2.4.p.3">Research Questions: in addition to those for Section 5.1,</p>
+<p></p>
+
+<ul>
+<li>how to utilize L2 multicast to improve on CDN designs? How to utilize in-network capabilities in those designs?</li>
+<li>what forwarding methods may support the required multicast capabilities (see <a href="#FCDN" class="xref">[FCDN]</a>)</li>
+<li>how could storage be traded off against frequent, multicast-based, replication (see <a href="#FCDN" class="xref">[FCDN]</a>)</li>
+<li>what scalability limits exist for L2 multicast capabilities? How to overcome them?</li>
+</ul>
+<h3 id="rfc.section.6.2.5">
+<a href="#rfc.section.6.2.5">6.2.5.</a> <a href="#requirements-7" id="requirements-7">Requirements</a>
+</h3>
+<p id="rfc.section.6.2.5.p.1">Req 6.2.1: Any app-centric execution environment SHOULD utilize Layer 2 multicast transmission capabilities for responses to concurrent service requests.</p>
+<h2 id="rfc.section.6.3">
+<a href="#rfc.section.6.3">6.3.</a> <a href="#CFaaS" id="CFaaS">CFaaS</a>
+</h2>
+<h3 id="rfc.section.6.3.1">
+<a href="#rfc.section.6.3.1">6.3.1.</a> <a href="#description-7" id="description-7">Description</a>
+</h3>
+<p id="rfc.section.6.3.1.p.1">App-centric execution environments, consisting of Layer 2 connected data centres, provide the opportunity for infrastructure providers to offer CFaaS type of offerings to application providers.  Those app providers utilize the compute fabric exposed by this CFaaS offering for the purposes defined through their applications.  In other words, the compute resources can be utilized to execute the desired micro-services of which the application is composed, while utilizing the inter-connection between those compute resources to do so in a distributed manner.</p>
+<h3 id="rfc.section.6.3.2">
+<a href="#rfc.section.6.3.2">6.3.2.</a> <a href="#characterization-7" id="characterization-7">Characterization</a>
+</h3>
+<p id="rfc.section.6.3.2.p.1">We foresee those CFaaS offerings to be tenant-specific, a tenant here defined as the provider of at least one application.  For this, we foresee an interaction between CFaaS provider and tenant to dynamically select the appropriate resources to define the demand side of the fabric.  Conversely, we also foresee the supply side of the fabric to be highly dynamic with resources being offered to the fabric through, e.g., user-provided resources (whose supply might depend on highly context-specific supply policies) or infrastructure resources of intermittent availability such as those provided through road-side infrastructure in vehicular scenarios.  The resulting dynamic demand-supply matching establishes a dynamic nature of the compute fabric that in turn requires trust relationships to be built dynamically between the resource provider(s) and the CFaaS provider.  This also requires the communication resources to be dynamically adjusted to interconnect all resources suitably into the (tenant-specific) fabric exposed as CFaaS.</p>
+<h3 id="rfc.section.6.3.3">
+<a href="#rfc.section.6.3.3">6.3.3.</a> <a href="#existing-solutions-8" id="existing-solutions-8">Existing Solutions</a>
+</h3>
+<p id="rfc.section.6.3.3.p.1">NOTE: material on solutions will be added here later</p>
+<h3 id="rfc.section.6.3.4">
+<a href="#rfc.section.6.3.4">6.3.4.</a> <a href="#opportunities-and-research-questions-for-coin-8" id="opportunities-and-research-questions-for-coin-8">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.6.3.4.p.1">Opportunities:</p>
+<p></p>
+
+<ul>
+<li>supporting service-level routing of requests (service routing in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+<li>support the constraint-based selection of a specific service instance over others (constraint-based routing in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+<li>supporting Layer 2 capabilities for multicast (compute interconnection and collective communication in <a href="#I-D.draft-sarathchandra-coin-appcentres-03" class="xref">[I-D.draft-sarathchandra-coin-appcentres-03]</a>)</li>
+</ul>
+<p id="rfc.section.6.3.4.p.3">Research Questions: similar to those for Section 5.1, in addition</p>
+<p></p>
+
+<ul>
+<li>how to convey app-specific requirements for the creation of the L2 fabric?</li>
+<li>how to dynamically integrate resources, particularly when driving by app-level requirements and changing service-specific constraints?</li>
+<li>how to utilize in-network capabilities to aid the availability and accountability of resources?</li>
+</ul>
+<h3 id="rfc.section.6.3.5">
+<a href="#rfc.section.6.3.5">6.3.5.</a> <a href="#requirements-8" id="requirements-8">Requirements</a>
+</h3>
+<p id="rfc.section.6.3.5.p.1">Req 6.3.1: Any app-specific execution environment SHOULD expose means to specify the requirements for the tenant-specific compute fabric being utilized for the app execution.</p>
+<p id="rfc.section.6.3.5.p.2">Req 6.3.2: Any app-specific execution environment SHOULD allow for dynamic integration of compute resources into the compute fabric being utilized for the app execution; those resources include, but are not limited to, end user provided resources.</p>
+<p id="rfc.section.6.3.5.p.3">Req 6.3.3: Any app-specific execution environment MUST provide means to optimize the inter-connection of compute resources, including those dynamically added and removed during the provisioning of the tenant-specific compute fabric.</p>
+<p id="rfc.section.6.3.5.p.4">Req 6.3.4: Any app-specific execution environment MUST provide means for ensuring availability and usage of resources is accounted for.</p>
+<h2 id="rfc.section.6.4">
+<a href="#rfc.section.6.4">6.4.</a> <a href="#virtual-networks-programming" id="virtual-networks-programming">Virtual Networks Programming</a>
+</h2>
+<h3 id="rfc.section.6.4.1">
+<a href="#rfc.section.6.4.1">6.4.1.</a> <a href="#description-8" id="description-8">Description</a>
+</h3>
+<p id="rfc.section.6.4.1.p.1">The term &#8220;virtual network programming&#8221; is proposed to describe mechanisms by which tenants deploy and operate network programs in their virtual network.  Network programs can be any in-network programs, for example P4 programs, OpenFlow rules, or higher layer programs.  This feature can enable other use cases described in this draft to be deployed using virtual networks services, over underlying networks such as datacenters, mobile networks, or other fixed or wireless networks.</p>
+<p id="rfc.section.6.4.1.p.2">Virtual network programming by tenants could bring benefits such as:</p>
+<p></p>
+
+<ul>
+<li>A unified programming model, which can facilitate porting in-network computing between data centers, 5G networks, and other fixed and wireless networks, as well as sharing controller, code and expertise.</li>
+<li>Increasing the level of customization available to customers/tenants of mobile networks or datacenters, when compared with typical configuration capabilities. For example, 5G network evolution points to an ever increasing specialization and customization of private mobile networks, which could be handled by tenants using a programming model similar to P4.</li>
+<li>Using network programs to influence underlying network service (e.g., request specific QoS for some flows in 5G or datacenters), to increases the level of in-depth customization available to tenants.</li>
+</ul>
+<p id="rfc.section.6.4.1.p.4">For example P4 programs could perform the following on a tenant&#8217;s virtual network:</p>
+<p></p>
+
+<ul>
+<li>Allow or block flows, and request rules from an SDN controller for each new flow, or for flows to or from specific hosts that needs enhanced security</li>
+<li>Forward a copy of some flows towards a node for storage and analysis</li>
+<li>Update counters based on specific sources/destinations or protocols, for detailed analytics</li>
+<li>Associate traffic between specific endpoints, using specific protocols, or originated from a given application, to a given slice, while other traffic use a default slice</li>
+<li>Experiment with a new routing protocol (e.g., ICN), using a P4 implementation of a router for this protocol</li>
+</ul>
+<h3 id="rfc.section.6.4.2">
+<a href="#rfc.section.6.4.2">6.4.2.</a> <a href="#characterization-8" id="characterization-8">Characterization</a>
+</h3>
+<p id="rfc.section.6.4.2.p.1">To provide a concrete example of virtual network programming, we consider a use case using a 5G underlying network, and the 5GLAN virtualization technology.  Section 5.1 of <a href="#I-D.ravi-icnrg-5gc-icn" class="xref">[I-D.ravi-icnrg-5gc-icn]</a> provides a description of the 5G network functions and interfaces relevant to 5GLAN, which are otherwise specified in <a href="#TS23.501" class="xref">[TS23.501]</a> and <a href="#TS23.502" class="xref">[TS23.502]</a>.  From the 5GLAN service customer/tenant standpoint, the 5G network operates as a switch.</p>
+<p id="rfc.section.6.4.2.p.2">In the use case depicted in <a href="#figureVN1" class="xref">Figure 4</a>, the tenant operates a network including a 5GLAN network segment (seen as a single logical switch), as well as fixed segments.  This can be in a plant or enterprise network, using for an example a 5G Non-Public Network (NPN).  The tenant uses P4 programs to determine the operation of the fixed and 5GLAN switches.  The tenant provisions a 5GLAN P4 program into the mobile network, and can also operate a controller.  The mobile devices (or User Equipment nodes) UE1, UE2, UE3 and UE4 are in the same 5GLAN, as well as Device1 and Device2 (through UE4).</p>
+<div id="rfc.figure.4"></div>
+<div id="figureVN1"></div>
+<pre>
+                                     ..... Tenant ........
+                          P4 program :                   :
+                          deployment :         Operation :
+                                     V                   :
+  +-----+  air interface +----------------+              :
+  | UE1 +----------------+                |              :
+  +-----+                |                |              :
+                         |                |              :
+  +-----+                |                |              V
+  | UE2 +----------------+     5GLAN      |      +------------+
+  +-----+                |    Logical     +------+ Controller |
+                         |     Switch     |  P4  +-------+----+
+  +-----+                |                |  runtime     |
+  | UE3 +----------------+                |  API         |
+  +-----+                |                |              |
+                         |                |              |
+  +-----+                |                |              |
++-+ UE4 +----------------+                |              |
+| +-----+                +----------------+              |
+|                                                        |
+| Fixed or wireless connection                           |
+|                                    P4 runtime API      |
+|  +---------+           +-------------------------------+
++--+ Device1 |           |
+|  +---------+           |
+|                        |
+|  +---------+    +------+-----+
+`--+ Device2 +----+ P4 Switch  +---&gt;(fixed network)
+   +---------+    +------------+
+</pre>
+<p class="figure">Figure 4: 5G Virtual Network Programming Overview</p>
+<p id="rfc.section.6.4.2.p.3">Looking in more details in <a href="#figureVN2" class="xref">Figure 5</a>, the 5GLAN P4 program can be split between multiple data plane nodes (PDU Session Anchor (PSA) User Plane Functions (UPF), other UPFs, or even mobile devices), although in some cases the P4 program may be hosted on a single node.  In the most general case, a distributed deployment is useful to keep traffic on optimal paths, because, except in simple cases, within a 5GLAN all traffic will not pass through a single node.  In this example, P4 programs could be deployed in UPF1, UPF2, UPF3, UE3 and UE4.  UE1-UE2 traffic is using a local switch on PSA UPF1, UE1-UE3 traffic is tunneled between PSA UPF1 and PSA UPF2 through the N19 interface, and UE1-UE4 traffic is forwarded through an external Data Network (DN).  Traffic between Device1 and Device2 is forwarded through UE4.</p>
+<div id="rfc.figure.5"></div>
+<div id="figureVN2"></div>
+<pre>
+                         +-----+          +-----+      +------------+
+                         | AMF |          | SMF |      | Controller |
+                         +-+-+-+          +--+--+      +-----+------+
+                          /  |               |             P4|
+               +---------+   |             N4|        Runtime|
+          N1  /              |N2             |               V
+      +------+               |               |     (all P4 programs*)
+     /                       |               |
+  +--+--+  air interface +---+-----+ N3 +-+--+----------+  N6  +----+
+  | UE1 +----------------+  (R)AN  +----+   PSA UPF1*   +-----&gt;+    |
+  +-----+                +---------+    +-+-------+-----+      |    |
+     |                       |            |  |    |            |    |
+  +--+--+                +---+-----+      |  |    |            |    |
+  | UE2 +----------------+  (R)AN  +------'  |    | N19        | DN |
+  +-----+                +---------+         |    |            |    |
+     |                       |               |    |            |    |
+  +--+--+                +---+-----+    +----+----+-----+      |    |
+  | UE3*+----------------+  (R)AN  +----+    PSA UPF2*  +      |    |
+  +-----+                +---------+    +---------+-----+      |    |
+     |                       |               |    | N19        |    |
+  +--+--+                +---+-----+    +----+----+-----+  N6  |    |
++-+ UE4*+----------------+  (R)AN  +----+    PSA UPF3*  +-----&gt;+    |
+| +-----+                +---------+    +---------------+      +----+
+|
+| Fixed or wireless connection
+|
+|  +---------+
++--+ Device1 |           (* indicates the presence of a P4 program)
+|  +---------+
+|
+|  +---------+    +------------+
+`--+ Device2 +----+ P4 Switch* +---&gt;(fixed network)
+   +---------+    +------------+
+</pre>
+<p class="figure">Figure 5: 5G Virtual Network Programming Details</p>
+<h3 id="rfc.section.6.4.3">
+<a href="#rfc.section.6.4.3">6.4.3.</a> <a href="#existing-solutions-9" id="existing-solutions-9">Existing Solutions</a>
+</h3>
+<p id="rfc.section.6.4.3.p.1">NOTE: material on solutions may be added later</p>
+<h3 id="rfc.section.6.4.4">
+<a href="#rfc.section.6.4.4">6.4.4.</a> <a href="#opportunities-and-research-questions-for-coin-9" id="opportunities-and-research-questions-for-coin-9">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.6.4.4.p.1">Opportunities:</p>
+<p></p>
+
+<ul><li>Underlying Network Awareness: a P4 program can be able to influence, and be influenced by, the underling network (e.g., the 5G network or data center). For example, a P4 program may be aware of the slice used by a flow, and possibly influence slice selection. Since some information and actions may be available on some nodes and not others, underlying network awareness may impose additional constraints on distributed network programs location.</li></ul>
+<p id="rfc.section.6.4.4.p.3">Research Questions:</p>
+<p></p>
+
+<ul>
+<li>Splitting/Distribution: a virtual network program may need to be deployed across multiple computing nodes, leading to research questions around instance placement and distribution. As a primary reason for this, network program logic should be applied exactly once or at least once per packet, while allowing optimal forwarding path by the underlying network. For example, a 5GLAN P4 program may need to run on multiple UPFs. Research challenges include defining manual (by the programmer) or automatic methods to distribute network programs that use a low or minimal amount of resources. Distributed P4 programs are studied in <a href="#I-D.hsingh-coinrg-reqs-p4comp" class="xref">[I-D.hsingh-coinrg-reqs-p4comp]</a> and <a href="#Sultana" class="xref">[Sultana]</a>.</li>
+<li>Multi-Tenancy Support: multiple virtual network program instances can run on the same compute node. While mechanism were proposed for P4 multi-tenancy in a switch <a href="#Stoyanov" class="xref">[Stoyanov]</a>, research questions remains, about isolation between tenants, fair repartition of resources.</li>
+<li>Security: how can tenants and underlying networks be protected against security risks, including overuse or misuse of network resources, injection of traffic, access to unauthorized traffic?</li>
+<li>Higher layer processing: can a virtual network model facilitate the deployment of network programs acting on application layer data? This is an open question since the present section focused on packet/flow processing.</li>
+</ul>
+<h3 id="rfc.section.6.4.5">
+<a href="#rfc.section.6.4.5">6.4.5.</a> <a href="#requirements-9" id="requirements-9">Requirements</a>
+</h3>
+<p></p>
+
+<ul>
+<li>Req 6.3.1: A virtual network program should process flows/packets once and only once (or at least once for idempotent operations), even if the program is distributed over multiple computing nodes.</li>
+<li>Req 6.3.2: Multi-tenancy should be supported for virtual network programs, i.e. instances of virtual network programs from different tenants can share underlying network computing nodes. This includes requirements for secure isolation between tenants, and fair (or policy-based) sharing of computing resources.</li>
+<li>Req 6.3.3: Virtual network programs should support mobility of endpoints.</li>
+</ul>
+<h1 id="rfc.section.7">
+<a href="#rfc.section.7">7.</a> <a href="#sec_considerations" id="sec_considerations">Security Considerations</a>
+</h1>
+<p id="rfc.section.7.p.1">Note: This section will need consolidation once new use cases are added to the draft.  Current in-network computing approaches typically work on unencrypted plain text data because today&#8217;s networking devices usually do not have crypto capabilities.  As is already mentioned in <a href="#FilteringChar" class="xref">Section 4.3.2</a>, this above all poses problems when business data, potentially containing business secrets, is streamed into remote computing facilities and consequently leaves the control of the company.  Insecure on-premise communication within the company and on the shop-floor is also a problem as machines could be intruded from the outside.  It is thus crucial to deploy security and authentication functionality on on-premise and outgoing communication although this might interfere with in-network computing approaches.  Ways to implement and combine security measures with in-network computing are described in more detail in <a href="#I-D.fink-coin-sec-priv" class="xref">[I-D.fink-coin-sec-priv]</a>.</p>
+<h1 id="rfc.section.8">
+<a href="#rfc.section.8">8.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
+</h1>
+<p id="rfc.section.8.p.1">N/A</p>
+<h1 id="rfc.section.9">
+<a href="#rfc.section.9">9.</a> <a href="#conclusion" id="conclusion">Conclusion</a>
+</h1>
+<p id="rfc.section.9.p.1">There are several domains that can profit from COIN.</p>
+<p id="rfc.section.9.p.2">Industrial scenarios have unique sets of requirements mostly focusing around tight latency constraints with high required bandwidths.</p>
+<p id="rfc.section.9.p.3">NOTE: Further aspects will be added once more use cases are added to the draft.</p>
+<h1 id="rfc.section.10">
+<a href="#rfc.section.10">10.</a> <a href="#list-of-use-case-contributors" id="list-of-use-case-contributors">List of Use Case Contributors</a>
+</h1>
+<p></p>
+
+<ul>
+<li>Ike Kunze and Klaus Wehrle have contributed the industrial use cases (<a href="#industrialUseCases" class="xref">Section 4</a>).</li>
+<li>Dirk Trossen has contributed the following use cases: <a href="#mobileAppOffload" class="xref">Section 5.1</a>, <a href="#distributedAI" class="xref">Section 6.1</a>, <a href="#CDNs" class="xref">Section 6.2</a>, <a href="#CFaaS" class="xref">Section 6.3</a>.</li>
+<li>Marie-Jos&#233; Montpetit has contributed the XR use case (<a href="#XR" class="xref">Section 5.2</a>).</li>
+<li>David Griffin and Miguel Rio have contributed the use case on performing arts (<a href="#PerformingArts" class="xref">Section 5.3</a>).</li>
+</ul>
+<h1 id="rfc.references">
+<a href="#rfc.references">11.</a> References</h1>
+<h2 id="rfc.references.1">
+<a href="#rfc.references.1">11.1.</a> Normative References</h2>
+<table><tbody><tr>
+<td class="reference"><b id="RFC2119">[RFC2119]</b></td>
+<td class="top">
+<a>Bradner, S.</a>, "<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+</tr></tbody></table>
+<h2 id="rfc.references.2">
+<a href="#rfc.references.2">11.2.</a> Informative References</h2>
+<table><tbody>
+<tr>
+<td class="reference"><b id="FCDN">[FCDN]</b></td>
+<td class="top">
+<a>Al-Naday, M.</a>, <a>Reed, M.</a>, <a>Riihijarvi, J.</a>, <a>Trossen, D.</a>, <a>Thomos, N.</a> and <a>M. Al-Khalidi</a>, "<a href="https://arxiv.org/pdf/1803.00876.pdf">A Flexible and Efficient CDN Infrastructure without DNS Redirection of Content Reflection</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="GLEBKE">[GLEBKE]</b></td>
+<td class="top">
+<a>Glebke, R.</a>, <a>Henze, M.</a>, <a>Wehrle, K.</a>, <a>Niemietz, P.</a>, <a>Trauth, D.</a>, <a>Mattfeld MBA, P.</a> and <a>T. Bergs</a>, "<a>A Case for Integrated Data Processing in Large-Scale Cyber-Physical Systems</a>", Proceedings of the 52nd Hawaii International Conference on System Sciences, DOI 10.24251/hicss.2019.871, 2019.</td>
+</tr>
+<tr>
+<td class="reference"><b id="GRPC">[GRPC]</b></td>
+<td class="top">"<a href="https://grpc.io/">High performance open source universal RPC framework</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="I-D.draft-sarathchandra-coin-appcentres-03">[I-D.draft-sarathchandra-coin-appcentres-03]</b></td>
+<td class="top">
+<a>Trossen, D.</a>, <a>Sarathchandra, C.</a> and <a>M. Boniface</a>, "<a href="https://tools.ietf.org/html/draft-sarathchandra-coin-appcentres-03">In-Network Computing for App-Centric Micro-Services</a>", Internet-Draft draft-sarathchandra-coin-appcentres-03, October 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="I-D.fink-coin-sec-priv">[I-D.fink-coin-sec-priv]</b></td>
+<td class="top">
+<a title="RWTH Aachen University">Fink, I. B.</a> and <a title="RWTH Aachen University">K. Wehrle</a>, "<a href="https://tools.ietf.org/html/draft-fink-coin-sec-priv-02">Enhancing Security and Privacy with In-Network Computing</a>", Internet-Draft draft-fink-coin-sec-priv-02, March 2021.</td>
+</tr>
+<tr>
+<td class="reference"><b id="I-D.hsingh-coinrg-reqs-p4comp">[I-D.hsingh-coinrg-reqs-p4comp]</b></td>
+<td class="top">
+<a title="MNK Labs and Consulting">Singh, H.</a> and <a title="Concordia Univeristy">M. Montpetit</a>, "<a href="https://tools.ietf.org/html/draft-hsingh-coinrg-reqs-p4comp-03">Requirements for P4 Program Splitting for Heterogeneous Network Nodes</a>", Internet-Draft draft-hsingh-coinrg-reqs-p4comp-03, February 2021.</td>
+</tr>
+<tr>
+<td class="reference"><b id="I-D.mcbride-edge-data-discovery-overview">[I-D.mcbride-edge-data-discovery-overview]</b></td>
+<td class="top">
+<a title="Futurewei">McBride, M.</a>, <a title="Emden University">Kutscher, D.</a>, <a title="Intel">Schooler, E.</a>, <a title="Universidad Carlos III de Madrid">Bernardos, C. J.</a>, <a title="Telefonica">Lopez, D. R.</a> and <a title="InterDigital Communications, LLC">X. D. Foy</a>, "<a href="https://tools.ietf.org/html/draft-mcbride-edge-data-discovery-overview-05">Edge Data Discovery for COIN</a>", Internet-Draft draft-mcbride-edge-data-discovery-overview-05, November 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="I-D.ravi-icnrg-5gc-icn">[I-D.ravi-icnrg-5gc-icn]</b></td>
+<td class="top">
+<a title="Futurewei Technologies">Ravindran, R.</a>, <a title="Cisco Systems">Suthar, P.</a>, <a title="InterDigital Inc.">Trossen, D.</a>, <a title="InterDigital Inc.">Wang, C.</a> and <a title="CableLabs">G. White</a>, "<a href="https://tools.ietf.org/html/draft-ravi-icnrg-5gc-icn-04">Enabling ICN in 3GPP's 5G NextGen Core Architecture</a>", Internet-Draft draft-ravi-icnrg-5gc-icn-04, May 2019.</td>
+</tr>
+<tr>
+<td class="reference"><b id="ICE">[ICE]</b></td>
+<td class="top">
+<a>Burke, J.</a>, "<a href="https://www.nist.gov/news-events/events/2018/09/named-data-networking-community-meeting-2018">ICN-Enabled Secure Edge Networking with Augmented Reality: ICE-AR.</a>", ICE-AR Presentation at NDNCOM. , 2018.</td>
+</tr>
+<tr>
+<td class="reference"><b id="MPI">[MPI]</b></td>
+<td class="top">
+<a>Vishnu, A.</a>, <a>Siegel, C.</a> and <a>J. Daily</a>, "<a href="https://arxiv.org/pdf/1603.02339.pdf">Scaling Distributed Machine Learning with In-Network Aggregation</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="PENNEKAMP">[PENNEKAMP]</b></td>
+<td class="top">
+<a>Pennekamp, J.</a>, <a>Henze, M.</a>, <a>Schmidt, S.</a>, <a>Niemietz, P.</a>, <a>Fey, M.</a>, <a>Trauth, D.</a>, <a>Bergs, T.</a>, <a>Brecher, C.</a> and <a>K. Wehrle</a>, "<a>Dataflow Challenges in an Internet of Production: A Security &amp; Privacy Perspective</a>", Proceedings of the ACM Workshop on Cyber-Physical Systems Security &amp; Privacy - CPS-SPC'19, DOI 10.1145/3338499.3357357, 2019.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RUETH">[RUETH]</b></td>
+<td class="top">
+<a>R&#252;th, J.</a>, <a>Glebke, R.</a>, <a>Wehrle, K.</a>, <a>Causevic, V.</a> and <a>S. Hirche</a>, "<a>Towards In-Network Industrial Feedback Control</a>", Proceedings of the 2018 Morning Workshop on In-Network Computing, DOI 10.1145/3229591.3229592, August 2018.</td>
+</tr>
+<tr>
+<td class="reference"><b id="SAPIO">[SAPIO]</b></td>
+<td class="top">
+<a>Sapio, A.</a>, "<a href="https://arxiv.org/abs/1903.06701">Scaling Distributed Machine Learning with In-Network Aggregation</a>", 2019.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Stoyanov">[Stoyanov]</b></td>
+<td class="top">
+<a>Stoyanov, R.</a> and <a>N. Zilberman</a>, "<a href="https://eng.ox.ac.uk/media/6354/stoyanov2020mtpsa.pdf">MTPSA: Multi-Tenant Programmable Switches</a>", ACM P4 Workshop in Europe (EuroP4'20) , 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Sultana">[Sultana]</b></td>
+<td class="top">
+<a>Sultana, N.</a>, <a>Sonchack, J.</a>, <a>Giesen, H.</a>, <a>Pedisich, I.</a>, <a>Han, Z.</a>, <a>Shyamkumar, N.</a>, <a>Burad, S.</a>, <a>DeHon, A.</a> and <a>B. Loo</a>, "<a href="https://flightplan.cis.upenn.edu/flightplan.pdf">Flightplan: Dataplane Disaggregation and Placement for P4 Programs</a>", 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="TS23.501">[TS23.501]</b></td>
+<td class="top">
+<a>501, 3gpp-23.</a>, "<a href="https://www.3gpp.org/DynaReport/23501.htm">Technical Specification Group Services and System Aspects; System Architecture for the 5G System; Stage 2 (Rel.17)</a>", 3GPP , 2021.</td>
+</tr>
+<tr>
+<td class="reference"><b id="TS23.502">[TS23.502]</b></td>
+<td class="top">
+<a>502, 3gpp-23.</a>, "<a href="https://www.3gpp.org/DynaReport/23502.htm">Technical Specification Group Services and System Aspects; Procedures for the 5G System; Stage 2 (Rel.17)</a>", 3GPP , 2021.</td>
+</tr>
+<tr>
+<td class="reference"><b id="TSN">[TSN]</b></td>
+<td class="top">"<a href="https://1.ieee802.org/tsn/">IEEE Time-Sensitive Networking (TSN) Task Group</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="VESTIN">[VESTIN]</b></td>
+<td class="top">
+<a>Vestin, J.</a>, <a>Kassler, A.</a> and <a>J. Akerberg</a>, "<a>FastReact: In-Network Control and Caching for Industrial Control Networks using Programmable Data Planes</a>", 2018 IEEE 23rd International Conference on Emerging Technologies and Factory Automation (ETFA), DOI 10.1109/etfa.2018.8502456, September 2018.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Ike Kunze</span> 
+	  <span class="n hidden">
+		<span class="family-name">Kunze</span>
+	  </span>
+	</span>
+	<span class="org vcardline">RWTH Aachen University</span>
+	<span class="adr">
+	  <span class="vcardline">Ahornstr. 55</span>
+
+	  <span class="vcardline">
+		<span class="locality">Aachen</span>,  
+		<span class="region"></span>
+		<span class="code">D-52074</span>
+	  </span>
+	  <span class="country-name vcardline">Germany</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:kunze@comsys.rwth-aachen.de">kunze@comsys.rwth-aachen.de</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Klaus Wehrle</span> 
+	  <span class="n hidden">
+		<span class="family-name">Wehrle</span>
+	  </span>
+	</span>
+	<span class="org vcardline">RWTH Aachen University</span>
+	<span class="adr">
+	  <span class="vcardline">Ahornstr. 55</span>
+
+	  <span class="vcardline">
+		<span class="locality">Aachen</span>,  
+		<span class="region"></span>
+		<span class="code">D-52074</span>
+	  </span>
+	  <span class="country-name vcardline">Germany</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:wehrle@comsys.rwth-aachen.de">wehrle@comsys.rwth-aachen.de</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Dirk Trossen</span> 
+	  <span class="n hidden">
+		<span class="family-name">Trossen</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Huawei Technologies Duesseldorf GmbH</span>
+	<span class="adr">
+	  <span class="vcardline">Riesstr. 25C</span>
+
+	  <span class="vcardline">
+		<span class="locality">Munich</span>,  
+		<span class="region"></span>
+		<span class="code">D-80992</span>
+	  </span>
+	  <span class="country-name vcardline">Germany</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:Dirk.Trossen@Huawei.com">Dirk.Trossen@Huawei.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Marie-Jos&#233; Montpetit</span> 
+	  <span class="n hidden">
+		<span class="family-name">Montpetit</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Concordia University</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality">Montreal</span>,  
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline">Canada</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:marie@mjmontpetit.com">marie@mjmontpetit.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Xavier de Foy</span> 
+	  <span class="n hidden">
+		<span class="family-name">de Foy</span>
+	  </span>
+	</span>
+	<span class="org vcardline">InterDigital Communications, LLC</span>
+	<span class="adr">
+	  <span class="vcardline">1000 Sherbrooke West</span>
+
+	  <span class="vcardline">
+		<span class="locality">Montreal</span>,  
+		<span class="region"></span>
+		<span class="code">H3A 3G4</span>
+	  </span>
+	  <span class="country-name vcardline">Canada</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:xavier.defoy@interdigital.com">xavier.defoy@interdigital.com</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>

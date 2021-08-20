@@ -1,0 +1,23 @@
+<reference anchor='RUETH' >
+  <front>
+    <title>Towards In-Network Industrial Feedback Control</title>
+    <author initials="J." surname="Rüth" fullname="Jan Rüth">
+      <organization></organization>
+    </author>
+    <author initials="R." surname="Glebke" fullname="René Glebke">
+      <organization></organization>
+    </author>
+    <author initials="K." surname="Wehrle" fullname="Klaus Wehrle">
+      <organization></organization>
+    </author>
+    <author initials="V." surname="Causevic" fullname="Vedad Causevic">
+      <organization></organization>
+    </author>
+    <author initials="S." surname="Hirche" fullname="Sandra Hirche">
+      <organization></organization>
+    </author>
+    <date year="2018" month="August"/>
+  </front>
+  <seriesInfo name="Proceedings of the 2018 Morning Workshop on In-Network" value="Computing"/>
+  <seriesInfo name="DOI" value="10.1145/3229591.3229592"/>
+</reference>

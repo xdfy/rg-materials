@@ -49,8 +49,18 @@ author:
     org: Concordia University
     abbrev: Concordia
     email: marie@mjmontpetit.com
+    street: ''
     city: Montreal
     country: Canada
+
+- ins: X. de Foy
+  name: Xavier de Foy
+  org: InterDigital Communications, LLC
+  street: '1000 Sherbrooke West'
+  city: Montreal
+  code: H3A 3G4
+  country: Canada
+  email: xavier.defoy@interdigital.com
 
 normative:
   RFC2119:
@@ -133,6 +143,44 @@ informative:
     target: https://www.nist.gov/news-events/events/2018/09/named-data-networking-community-meeting-2018
     seriesinfo: ICE-AR Presentation at NDNCOM.
 
+  I-D.ravi-icnrg-5gc-icn:
+  I-D.hsingh-coinrg-reqs-p4comp:
+  Stoyanov:
+    title: 'MTPSA: Multi-Tenant Programmable Switches'
+    author:
+    - ins: R. Stoyanov
+    - ins: N. Zilberman
+    date: '2020'
+    seriesinfo: ACM P4 Workshop in Europe (EuroP4'20)
+    target: 'https://eng.ox.ac.uk/media/6354/stoyanov2020mtpsa.pdf'
+  TS23.501:
+    title: 'Technical Specification Group Services and System Aspects; System Architecture for the 5G System; Stage 2 (Rel.17)'
+    author:
+    - ins: 3gpp-23.501
+    date: '2021'
+    seriesinfo: 3GPP
+    target: 'https://www.3gpp.org/DynaReport/23501.htm'
+  TS23.502:
+    title: 'Technical Specification Group Services and System Aspects; Procedures for the 5G System; Stage 2 (Rel.17)'
+    author:
+    - ins: 3gpp-23.502
+    date: '2021'
+    seriesinfo: 3GPP
+    target: 'https://www.3gpp.org/DynaReport/23502.htm'
+  Sultana:
+    title: 'Flightplan: Dataplane Disaggregation and Placement for P4 Programs'
+    author:
+    - ins: N. Sultana
+    - ins: J. Sonchack
+    - ins: H. Giesen
+    - ins: I. Pedisich
+    - ins: Z. Han
+    - ins: N. Shyamkumar
+    - ins: S. Burad
+    - ins: A. DeHon
+    - ins: B. T. Loo
+    date: '2020'
+    target: 'https://flightplan.cis.upenn.edu/flightplan.pdf'
 
 
 --- abstract
@@ -882,6 +930,152 @@ Research Questions: similar to those for Section 5.1, in addition
    Req 6.3.4: Any app-specific execution environment MUST provide means for ensuring availability and usage of resources is accounted for.
 
 
+
+
+##  Virtual Networks Programming
+
+###  Description
+
+
+The term "virtual network programming" is proposed to describe mechanisms by which tenants deploy and operate network programs in their virtual network.
+Network programs can be any in-network programs, for example P4 programs, OpenFlow rules, or higher layer programs.
+This feature can enable other use cases described in this draft to be deployed using virtual networks services, over underlying networks such as datacenters, mobile networks, or other fixed or wireless networks.
+
+
+Virtual network programming by tenants could bring benefits such as:
+
+* A unified programming model, which can facilitate porting in-network computing between data centers, 5G networks, and other fixed and wireless networks, as well as sharing controller, code and expertise.
+* Increasing the level of customization available to customers/tenants of mobile networks or datacenters, when compared with typical configuration capabilities. For example, 5G network evolution points to an ever increasing specialization and customization of private mobile networks, which could be handled by tenants using a programming model similar to P4.
+* Using network programs to influence underlying network service (e.g., request specific QoS for some flows in 5G or datacenters), to increases the level of in-depth customization available to tenants.
+
+
+For example P4 programs could perform the following on a tenant’s virtual network:
+
+* Allow or block flows, and request rules from an SDN controller for each new flow, or for flows to or from specific hosts that needs enhanced security
+* Forward a copy of some flows towards a node for storage and analysis
+* Update counters based on specific sources/destinations or protocols, for detailed analytics
+* Associate traffic between specific endpoints, using specific protocols, or originated from a given application, to a given slice, while other traffic use a default slice
+* Experiment with a new routing protocol (e.g., ICN), using a P4 implementation of a router for this protocol
+
+
+
+###  Characterization
+
+To provide a concrete example of virtual network programming, we consider a use case using a 5G underlying network, and the 5GLAN virtualization technology.
+Section 5.1 of {{I-D.ravi-icnrg-5gc-icn}} provides a description of the 5G network functions and interfaces relevant to 5GLAN, which are otherwise specified in {{TS23.501}} and {{TS23.502}}.
+From the 5GLAN service customer/tenant standpoint, the 5G network operates as a switch.
+
+In the use case depicted in {{figureVN1}}, the tenant operates a network including a 5GLAN network segment (seen as a single logical switch), as well as fixed segments.
+This can be in a plant or enterprise network, using for an example a 5G Non-Public Network (NPN).
+The tenant uses P4 programs to determine the operation of the fixed and 5GLAN switches.
+The tenant provisions a 5GLAN P4 program into the mobile network, and can also operate a controller.
+The mobile devices (or User Equipment nodes) UE1, UE2, UE3 and UE4 are in the same 5GLAN, as well as Device1 and Device2 (through UE4).
+
+~~~~~~~~~~
+                                     ..... Tenant ........
+                          P4 program :                   :
+                          deployment :         Operation :
+                                     V                   :
+  +-----+  air interface +----------------+              :
+  | UE1 +----------------+                |              :
+  +-----+                |                |              :
+                         |                |              :
+  +-----+                |                |              V
+  | UE2 +----------------+     5GLAN      |      +------------+
+  +-----+                |    Logical     +------+ Controller |
+                         |     Switch     |  P4  +-------+----+
+  +-----+                |                |  runtime     |
+  | UE3 +----------------+                |  API         |
+  +-----+                |                |              |
+                         |                |              |
+  +-----+                |                |              |
++-+ UE4 +----------------+                |              |
+| +-----+                +----------------+              |
+|                                                        |
+| Fixed or wireless connection                           |
+|                                    P4 runtime API      |
+|  +---------+           +-------------------------------+
++--+ Device1 |           |
+|  +---------+           |
+|                        |
+|  +---------+    +------+-----+
+`--+ Device2 +----+ P4 Switch  +--->(fixed network)
+   +---------+    +------------+
+~~~~~~~~~~
+{: #figureVN1 title="5G Virtual Network Programming Overview"}
+
+
+Looking in more details in {{figureVN2}}, the 5GLAN P4 program can be split between multiple data plane nodes (PDU Session Anchor (PSA) User Plane Functions (UPF), other UPFs, or even mobile devices), although in some cases the P4 program may be hosted on a single node.
+In the most general case, a distributed deployment is useful to keep traffic on optimal paths, because, except in simple cases, within a 5GLAN all traffic will not pass through a single node.
+In this example, P4 programs could be deployed in UPF1, UPF2, UPF3, UE3 and UE4.
+UE1-UE2 traffic is using a local switch on PSA UPF1, UE1-UE3 traffic is tunneled between PSA UPF1 and PSA UPF2 through the N19 interface, and UE1-UE4 traffic is forwarded through
+an external Data Network (DN).
+Traffic between Device1 and Device2 is forwarded through UE4.
+
+~~~~~~~~~~
+                         +-----+          +-----+      +------------+
+                         | AMF |          | SMF |      | Controller |
+                         +-+-+-+          +--+--+      +-----+------+
+                          /  |               |             P4|
+               +---------+   |             N4|        Runtime|
+          N1  /              |N2             |               V
+      +------+               |               |     (all P4 programs*)
+     /                       |               |
+  +--+--+  air interface +---+-----+ N3 +-+--+----------+  N6  +----+
+  | UE1 +----------------+  (R)AN  +----+   PSA UPF1*   +----->+    |
+  +-----+                +---------+    +-+-------+-----+      |    |
+     |                       |            |  |    |            |    |
+  +--+--+                +---+-----+      |  |    |            |    |
+  | UE2 +----------------+  (R)AN  +------'  |    | N19        | DN |
+  +-----+                +---------+         |    |            |    |
+     |                       |               |    |            |    |
+  +--+--+                +---+-----+    +----+----+-----+      |    |
+  | UE3*+----------------+  (R)AN  +----+    PSA UPF2*  +      |    |
+  +-----+                +---------+    +---------+-----+      |    |
+     |                       |               |    | N19        |    |
+  +--+--+                +---+-----+    +----+----+-----+  N6  |    |
++-+ UE4*+----------------+  (R)AN  +----+    PSA UPF3*  +----->+    |
+| +-----+                +---------+    +---------------+      +----+
+|
+| Fixed or wireless connection
+|
+|  +---------+
++--+ Device1 |           (* indicates the presence of a P4 program)
+|  +---------+
+|
+|  +---------+    +------------+
+`--+ Device2 +----+ P4 Switch* +--->(fixed network)
+   +---------+    +------------+
+~~~~~~~~~~
+{: #figureVN2 title="5G Virtual Network Programming Details"}
+
+
+###  Existing Solutions
+
+NOTE: material on solutions may be added later
+
+###  Opportunities and Research Questions for COIN
+
+
+Opportunities:
+
+* Underlying Network Awareness: a P4 program can be able to influence, and be influenced by, the underling network (e.g., the 5G network or data center). For example, a P4 program may be aware of the slice used by a flow, and possibly influence slice selection. Since some information and actions may be available on some nodes and not others, underlying network awareness may impose additional constraints on distributed network programs location.
+
+Research Questions:
+
+* Splitting/Distribution: a virtual network program may need to be deployed across multiple computing nodes, leading to research questions around instance placement and distribution. As a primary reason for this, network program logic should be applied exactly once or at least once per packet, while allowing optimal forwarding path by the underlying network. For example, a 5GLAN P4 program may need to run on multiple UPFs. Research challenges include defining manual (by the programmer) or automatic methods to distribute network programs that use a low or minimal amount of resources. Distributed P4 programs are studied in {{I-D.hsingh-coinrg-reqs-p4comp}} and {{Sultana}}.
+
+* Multi-Tenancy Support: multiple virtual network program instances can run on the same compute node. While mechanism were proposed for P4 multi-tenancy in a switch {{Stoyanov}}, research questions remains, about isolation between tenants, fair repartition of resources.
+
+* Security: how can tenants and underlying networks be protected against security risks, including overuse or misuse of network resources, injection of traffic, access to unauthorized traffic?
+
+* Higher layer processing: can a virtual network model facilitate the deployment of network programs acting on application layer data? This is an open question since the present section focused on packet/flow processing.
+
+###  Requirements
+
+*  Req 6.3.1: A virtual network program should process flows/packets once and only once (or at least once for idempotent operations), even if the program is distributed over multiple computing nodes.
+*  Req 6.3.2: Multi-tenancy should be supported for virtual network programs, i.e. instances of virtual network programs from different tenants can share underlying network computing nodes. This includes requirements for secure isolation between tenants, and fair (or policy-based) sharing of computing resources.
+*  Req 6.3.3: Virtual network programs should support mobility of endpoints.
 
 
 # Security Considerations {#sec_considerations}

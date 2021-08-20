@@ -1,0 +1,17 @@
+<reference anchor='VESTIN' >
+  <front>
+    <title>FastReact: In-Network Control and Caching for Industrial Control Networks using Programmable Data Planes</title>
+    <author initials="J." surname="Vestin" fullname="Jonathan Vestin">
+      <organization></organization>
+    </author>
+    <author initials="A." surname="Kassler" fullname="Andreas Kassler">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Akerberg" fullname="Johan Akerberg">
+      <organization></organization>
+    </author>
+    <date year="2018" month="September"/>
+  </front>
+  <seriesInfo name="2018 IEEE 23rd International Conference on Emerging Technologies and Factory Automation" value="(ETFA)"/>
+  <seriesInfo name="DOI" value="10.1109/etfa.2018.8502456"/>
+</reference>
