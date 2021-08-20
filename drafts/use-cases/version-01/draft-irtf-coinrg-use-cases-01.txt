@@ -9,11 +9,13 @@ Expires: February 21, 2022                                    D. Trossen
                                                                   Huawei
                                                             M. Montpetit
                                                                Concordia
+                                                               X. de Foy
+                                        InterDigital Communications, LLC
                                                          August 20, 2021
 
 
                    Use Cases for In-Network Computing
-                     draft-irtf-coinrg-use-cases-00
+                     draft-irtf-coinrg-use-cases-01
 
 Abstract
 
@@ -48,8 +50,6 @@ Copyright Notice
    Copyright (c) 2021 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
-   This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
 
 
 
@@ -58,6 +58,8 @@ Kunze, et al.           Expires February 21, 2022               [Page 1]
 Internet-Draft               COIN Use Cases                  August 2021
 
 
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
    (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
@@ -104,8 +106,6 @@ Table of Contents
        5.2.3.  Existing Solutions  . . . . . . . . . . . . . . . . .  18
        5.2.4.  Opportunities and Research Questions for COIN . . . .  18
        5.2.5.  Requirements  . . . . . . . . . . . . . . . . . . . .  20
-     5.3.  Personalised and interactive performing arts  . . . . . .  21
-       5.3.1.  Description . . . . . . . . . . . . . . . . . . . . .  21
 
 
 
@@ -114,6 +114,8 @@ Kunze, et al.           Expires February 21, 2022               [Page 2]
 Internet-Draft               COIN Use Cases                  August 2021
 
 
+     5.3.  Personalised and interactive performing arts  . . . . . .  21
+       5.3.1.  Description . . . . . . . . . . . . . . . . . . . . .  21
        5.3.2.  Characterization  . . . . . . . . . . . . . . . . . .  21
        5.3.3.  Existing solutions  . . . . . . . . . . . . . . . . .  23
        5.3.4.  Opportunities and Research Questions for COIN . . . .  23
@@ -137,14 +139,20 @@ Internet-Draft               COIN Use Cases                  August 2021
        6.3.3.  Existing Solutions  . . . . . . . . . . . . . . . . .  27
        6.3.4.  Opportunities and Research Questions for COIN . . . .  27
        6.3.5.  Requirements  . . . . . . . . . . . . . . . . . . . .  28
-   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  28
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  28
-   9.  Conclusion  . . . . . . . . . . . . . . . . . . . . . . . . .  28
-   10. List of Use Case Contributors . . . . . . . . . . . . . . . .  29
-   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  29
-     11.1.  Normative References . . . . . . . . . . . . . . . . . .  29
-     11.2.  Informative References . . . . . . . . . . . . . . . . .  29
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  31
+     6.4.  Virtual Networks Programming  . . . . . . . . . . . . . .  28
+       6.4.1.  Description . . . . . . . . . . . . . . . . . . . . .  28
+       6.4.2.  Characterization  . . . . . . . . . . . . . . . . . .  29
+       6.4.3.  Existing Solutions  . . . . . . . . . . . . . . . . .  31
+       6.4.4.  Opportunities and Research Questions for COIN . . . .  31
+       6.4.5.  Requirements  . . . . . . . . . . . . . . . . . . . .  32
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  33
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  33
+   9.  Conclusion  . . . . . . . . . . . . . . . . . . . . . . . . .  33
+   10. List of Use Case Contributors . . . . . . . . . . . . . . . .  33
+   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  34
+     11.1.  Normative References . . . . . . . . . . . . . . . . . .  34
+     11.2.  Informative References . . . . . . . . . . . . . . . . .  34
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  36
 
 1.  Introduction
 
@@ -154,14 +162,6 @@ Internet-Draft               COIN Use Cases                  August 2021
    end-hosts while the network is kept simple and only intended as a
    "store and forward" packet facility.  This design-choice is suitable
    for a wide variety of applications and has helped in the rapid growth
-   of the Internet.  However, there are several domains which, e.g.,
-   demand a number of strict performance guarantees that cannot be
-   provided over regular best-effort networks or require more closed
-   loop integration to manage data flows.  In this context, flexibly
-   distributing the computation tasks across the network can help to
-   achieve the guarantees and increase the overall performance.
-
-
 
 
 
@@ -169,6 +169,13 @@ Kunze, et al.           Expires February 21, 2022               [Page 3]
 
 Internet-Draft               COIN Use Cases                  August 2021
 
+
+   of the Internet.  However, there are several domains which, e.g.,
+   demand a number of strict performance guarantees that cannot be
+   provided over regular best-effort networks or require more closed
+   loop integration to manage data flows.  In this context, flexibly
+   distributing the computation tasks across the network can help to
+   achieve the guarantees and increase the overall performance.
 
    However, different domains and different applications have different
    requirements and it remains unclear and the topic of academic
@@ -211,13 +218,6 @@ Internet-Draft               COIN Use Cases                  August 2021
        performance and other metrics and state essential questions that
        are suitable for guiding research.
 
-   5.  Requirements: describe the requirements for any solutions that
-       may need development along the opportunities outlined in item 4
-
-
-
-
-
 
 
 
@@ -225,6 +225,9 @@ Kunze, et al.           Expires February 21, 2022               [Page 4]
 
 Internet-Draft               COIN Use Cases                  August 2021
 
+
+   5.  Requirements: describe the requirements for any solutions that
+       may need development along the opportunities outlined in item 4
 
 4.  Industrial Use Cases
 
@@ -271,9 +274,6 @@ Internet-Draft               COIN Use Cases                  August 2021
    switches, which can interconnect all Ethernet-capable hosts, to
    proprietary equipment with proprietary protocols only supporting
    hosts of specific vendors.
-
-
-
 
 
 
@@ -1536,6 +1536,264 @@ Internet-Draft               COIN Use Cases                  August 2021
    Req 6.3.4: Any app-specific execution environment MUST provide means
    for ensuring availability and usage of resources is accounted for.
 
+6.4.  Virtual Networks Programming
+
+6.4.1.  Description
+
+   The term "virtual network programming" is proposed to describe
+   mechanisms by which tenants deploy and operate network programs in
+   their virtual network.  Network programs can be any in-network
+   programs, for example P4 programs, OpenFlow rules, or higher layer
+   programs.  This feature can enable other use cases described in this
+   draft to be deployed using virtual networks services, over underlying
+   networks such as datacenters, mobile networks, or other fixed or
+   wireless networks.
+
+   Virtual network programming by tenants could bring benefits such as:
+
+   o  A unified programming model, which can facilitate porting in-
+      network computing between data centers, 5G networks, and other
+      fixed and wireless networks, as well as sharing controller, code
+      and expertise.
+
+   o  Increasing the level of customization available to customers/
+      tenants of mobile networks or datacenters, when compared with
+      typical configuration capabilities.  For example, 5G network
+      evolution points to an ever increasing specialization and
+      customization of private mobile networks, which could be handled
+      by tenants using a programming model similar to P4.
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 28]
+
+Internet-Draft               COIN Use Cases                  August 2021
+
+
+   o  Using network programs to influence underlying network service
+      (e.g., request specific QoS for some flows in 5G or datacenters),
+      to increases the level of in-depth customization available to
+      tenants.
+
+   For example P4 programs could perform the following on a tenant's
+   virtual network:
+
+   o  Allow or block flows, and request rules from an SDN controller for
+      each new flow, or for flows to or from specific hosts that needs
+      enhanced security
+
+   o  Forward a copy of some flows towards a node for storage and
+      analysis
+
+   o  Update counters based on specific sources/destinations or
+      protocols, for detailed analytics
+
+   o  Associate traffic between specific endpoints, using specific
+      protocols, or originated from a given application, to a given
+      slice, while other traffic use a default slice
+
+   o  Experiment with a new routing protocol (e.g., ICN), using a P4
+      implementation of a router for this protocol
+
+6.4.2.  Characterization
+
+   To provide a concrete example of virtual network programming, we
+   consider a use case using a 5G underlying network, and the 5GLAN
+   virtualization technology.  Section 5.1 of [I-D.ravi-icnrg-5gc-icn]
+   provides a description of the 5G network functions and interfaces
+   relevant to 5GLAN, which are otherwise specified in [TS23.501] and
+   [TS23.502].  From the 5GLAN service customer/tenant standpoint, the
+   5G network operates as a switch.
+
+   In the use case depicted in Figure 4, the tenant operates a network
+   including a 5GLAN network segment (seen as a single logical switch),
+   as well as fixed segments.  This can be in a plant or enterprise
+   network, using for an example a 5G Non-Public Network (NPN).  The
+   tenant uses P4 programs to determine the operation of the fixed and
+   5GLAN switches.  The tenant provisions a 5GLAN P4 program into the
+   mobile network, and can also operate a controller.  The mobile
+   devices (or User Equipment nodes) UE1, UE2, UE3 and UE4 are in the
+   same 5GLAN, as well as Device1 and Device2 (through UE4).
+
+
+
+
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 29]
+
+Internet-Draft               COIN Use Cases                  August 2021
+
+
+                                        ..... Tenant ........
+                             P4 program :                   :
+                             deployment :         Operation :
+                                        V                   :
+     +-----+  air interface +----------------+              :
+     | UE1 +----------------+                |              :
+     +-----+                |                |              :
+                            |                |              :
+     +-----+                |                |              V
+     | UE2 +----------------+     5GLAN      |      +------------+
+     +-----+                |    Logical     +------+ Controller |
+                            |     Switch     |  P4  +-------+----+
+     +-----+                |                |  runtime     |
+     | UE3 +----------------+                |  API         |
+     +-----+                |                |              |
+                            |                |              |
+     +-----+                |                |              |
+   +-+ UE4 +----------------+                |              |
+   | +-----+                +----------------+              |
+   |                                                        |
+   | Fixed or wireless connection                           |
+   |                                    P4 runtime API      |
+   |  +---------+           +-------------------------------+
+   +--+ Device1 |           |
+   |  +---------+           |
+   |                        |
+   |  +---------+    +------+-----+
+   `--+ Device2 +----+ P4 Switch  +--->(fixed network)
+      +---------+    +------------+
+
+             Figure 4: 5G Virtual Network Programming Overview
+
+   Looking in more details in Figure 5, the 5GLAN P4 program can be
+   split between multiple data plane nodes (PDU Session Anchor (PSA)
+   User Plane Functions (UPF), other UPFs, or even mobile devices),
+   although in some cases the P4 program may be hosted on a single node.
+   In the most general case, a distributed deployment is useful to keep
+   traffic on optimal paths, because, except in simple cases, within a
+   5GLAN all traffic will not pass through a single node.  In this
+   example, P4 programs could be deployed in UPF1, UPF2, UPF3, UE3 and
+   UE4.  UE1-UE2 traffic is using a local switch on PSA UPF1, UE1-UE3
+   traffic is tunneled between PSA UPF1 and PSA UPF2 through the N19
+   interface, and UE1-UE4 traffic is forwarded through an external Data
+   Network (DN).  Traffic between Device1 and Device2 is forwarded
+   through UE4.
+
+
+
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 30]
+
+Internet-Draft               COIN Use Cases                  August 2021
+
+
+                            +-----+          +-----+      +------------+
+                            | AMF |          | SMF |      | Controller |
+                            +-+-+-+          +--+--+      +-----+------+
+                             /  |               |             P4|
+                  +---------+   |             N4|        Runtime|
+             N1  /              |N2             |               V
+         +------+               |               |     (all P4 programs*)
+        /                       |               |
+     +--+--+  air interface +---+-----+ N3 +-+--+----------+  N6  +----+
+     | UE1 +----------------+  (R)AN  +----+   PSA UPF1*   +----->+    |
+     +-----+                +---------+    +-+-------+-----+      |    |
+        |                       |            |  |    |            |    |
+     +--+--+                +---+-----+      |  |    |            |    |
+     | UE2 +----------------+  (R)AN  +------'  |    | N19        | DN |
+     +-----+                +---------+         |    |            |    |
+        |                       |               |    |            |    |
+     +--+--+                +---+-----+    +----+----+-----+      |    |
+     | UE3*+----------------+  (R)AN  +----+    PSA UPF2*  +      |    |
+     +-----+                +---------+    +---------+-----+      |    |
+        |                       |               |    | N19        |    |
+     +--+--+                +---+-----+    +----+----+-----+  N6  |    |
+   +-+ UE4*+----------------+  (R)AN  +----+    PSA UPF3*  +----->+    |
+   | +-----+                +---------+    +---------------+      +----+
+   |
+   | Fixed or wireless connection
+   |
+   |  +---------+
+   +--+ Device1 |           (* indicates the presence of a P4 program)
+   |  +---------+
+   |
+   |  +---------+    +------------+
+   `--+ Device2 +----+ P4 Switch* +--->(fixed network)
+      +---------+    +------------+
+
+             Figure 5: 5G Virtual Network Programming Details
+
+6.4.3.  Existing Solutions
+
+   NOTE: material on solutions may be added later
+
+6.4.4.  Opportunities and Research Questions for COIN
+
+   Opportunities:
+
+   o  Underlying Network Awareness: a P4 program can be able to
+      influence, and be influenced by, the underling network (e.g., the
+      5G network or data center).  For example, a P4 program may be
+      aware of the slice used by a flow, and possibly influence slice
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 31]
+
+Internet-Draft               COIN Use Cases                  August 2021
+
+
+      selection.  Since some information and actions may be available on
+      some nodes and not others, underlying network awareness may impose
+      additional constraints on distributed network programs location.
+
+   Research Questions:
+
+   o  Splitting/Distribution: a virtual network program may need to be
+      deployed across multiple computing nodes, leading to research
+      questions around instance placement and distribution.  As a
+      primary reason for this, network program logic should be applied
+      exactly once or at least once per packet, while allowing optimal
+      forwarding path by the underlying network.  For example, a 5GLAN
+      P4 program may need to run on multiple UPFs.  Research challenges
+      include defining manual (by the programmer) or automatic methods
+      to distribute network programs that use a low or minimal amount of
+      resources.  Distributed P4 programs are studied in
+      [I-D.hsingh-coinrg-reqs-p4comp] and [Sultana].
+
+   o  Multi-Tenancy Support: multiple virtual network program instances
+      can run on the same compute node.  While mechanism were proposed
+      for P4 multi-tenancy in a switch [Stoyanov], research questions
+      remains, about isolation between tenants, fair repartition of
+      resources.
+
+   o  Security: how can tenants and underlying networks be protected
+      against security risks, including overuse or misuse of network
+      resources, injection of traffic, access to unauthorized traffic?
+
+   o  Higher layer processing: can a virtual network model facilitate
+      the deployment of network programs acting on application layer
+      data?  This is an open question since the present section focused
+      on packet/flow processing.
+
+6.4.5.  Requirements
+
+   o  Req 6.3.1: A virtual network program should process flows/packets
+      once and only once (or at least once for idempotent operations),
+      even if the program is distributed over multiple computing nodes.
+
+   o  Req 6.3.2: Multi-tenancy should be supported for virtual network
+      programs, i.e. instances of virtual network programs from
+      different tenants can share underlying network computing nodes.
+      This includes requirements for secure isolation between tenants,
+      and fair (or policy-based) sharing of computing resources.
+
+   o  Req 6.3.3: Virtual network programs should support mobility of
+      endpoints.
+
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 32]
+
+Internet-Draft               COIN Use Cases                  August 2021
+
+
 7.  Security Considerations
 
    Note: This section will need consolidation once new use cases are
@@ -1561,15 +1819,6 @@ Internet-Draft               COIN Use Cases                  August 2021
 
    There are several domains that can profit from COIN.
 
-
-
-
-
-Kunze, et al.           Expires February 21, 2022              [Page 28]
-
-Internet-Draft               COIN Use Cases                  August 2021
-
-
    Industrial scenarios have unique sets of requirements mostly focusing
    around tight latency constraints with high required bandwidths.
 
@@ -1589,6 +1838,17 @@ Internet-Draft               COIN Use Cases                  August 2021
 
    o  David Griffin and Miguel Rio have contributed the use case on
       performing arts (Section 5.3).
+
+
+
+
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 33]
+
+Internet-Draft               COIN Use Cases                  August 2021
+
 
 11.  References
 
@@ -1615,17 +1875,6 @@ Internet-Draft               COIN Use Cases                  August 2021
    [GRPC]     "High performance open source universal RPC framework",
               <https://grpc.io/>.
 
-
-
-
-
-
-
-Kunze, et al.           Expires February 21, 2022              [Page 29]
-
-Internet-Draft               COIN Use Cases                  August 2021
-
-
    [I-D.draft-sarathchandra-coin-appcentres-03]
               Trossen, D., Sarathchandra, C., and M. Boniface, "In-
               Network Computing for App-Centric Micro-Services", draft-
@@ -1637,11 +1886,31 @@ Internet-Draft               COIN Use Cases                  August 2021
               with In-Network Computing", draft-fink-coin-sec-priv-02
               (work in progress), March 2021.
 
+   [I-D.hsingh-coinrg-reqs-p4comp]
+              Singh, H. and M. Montpetit, "Requirements for P4 Program
+              Splitting for Heterogeneous Network Nodes", draft-hsingh-
+              coinrg-reqs-p4comp-03 (work in progress), February 2021.
+
    [I-D.mcbride-edge-data-discovery-overview]
               McBride, M., Kutscher, D., Schooler, E., Bernardos, C. J.,
               Lopez, D. R., and X. D. Foy, "Edge Data Discovery for
               COIN", draft-mcbride-edge-data-discovery-overview-05 (work
               in progress), November 2020.
+
+
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 34]
+
+Internet-Draft               COIN Use Cases                  August 2021
+
+
+   [I-D.ravi-icnrg-5gc-icn]
+              Ravindran, R., Suthar, P., Trossen, D., Wang, C., and G.
+              White, "Enabling ICN in 3GPP's 5G NextGen Core
+              Architecture", draft-ravi-icnrg-5gc-icn-04 (work in
+              progress), May 2019.
 
    [ICE]      Burke, J., "ICN-Enabled Secure Edge Networking with
               Augmented Reality: ICE-AR.", ICE-AR Presentation at
@@ -1671,16 +1940,42 @@ Internet-Draft               COIN Use Cases                  August 2021
               Network Aggregation", 2019,
               <https://arxiv.org/abs/1903.06701>.
 
-   [TSN]      "IEEE Time-Sensitive Networking (TSN) Task Group",
-              <https://1.ieee802.org/tsn/>.
+   [Stoyanov]
+              Stoyanov, R. and N. Zilberman, "MTPSA: Multi-Tenant
+              Programmable Switches", ACM P4 Workshop in Europe
+              (EuroP4'20) , 2020,
+              <https://eng.ox.ac.uk/media/6354/stoyanov2020mtpsa.pdf>.
+
+   [Sultana]  Sultana, N., Sonchack, J., Giesen, H., Pedisich, I., Han,
+              Z., Shyamkumar, N., Burad, S., DeHon, A., and B. Loo,
+              "Flightplan: Dataplane Disaggregation and Placement for P4
+              Programs", 2020,
+              <https://flightplan.cis.upenn.edu/flightplan.pdf>.
 
 
 
 
-Kunze, et al.           Expires February 21, 2022              [Page 30]
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 35]
 
 Internet-Draft               COIN Use Cases                  August 2021
 
+
+   [TS23.501]
+              501, 3gpp-23., "Technical Specification Group Services and
+              System Aspects; System Architecture for the 5G System;
+              Stage 2 (Rel.17)", 3GPP , 2021,
+              <https://www.3gpp.org/DynaReport/23501.htm>.
+
+   [TS23.502]
+              502, 3gpp-23., "Technical Specification Group Services and
+              System Aspects; Procedures for the 5G System; Stage 2
+              (Rel.17)", 3GPP , 2021,
+              <https://www.3gpp.org/DynaReport/23502.htm>.
+
+   [TSN]      "IEEE Time-Sensitive Networking (TSN) Task Group",
+              <https://1.ieee802.org/tsn/>.
 
    [VESTIN]   Vestin, J., Kassler, A., and J. Akerberg, "FastReact: In-
               Network Control and Caching for Industrial Control
@@ -1709,6 +2004,20 @@ Authors' Addresses
    Email: wehrle@comsys.rwth-aachen.de
 
 
+
+
+
+
+
+
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 36]
+
+Internet-Draft               COIN Use Cases                  August 2021
+
+
    Dirk Trossen
    Huawei Technologies Duesseldorf GmbH
    Riesstr. 25C
@@ -1726,6 +2035,13 @@ Authors' Addresses
    Email: marie@mjmontpetit.com
 
 
+   Xavier de Foy
+   InterDigital Communications, LLC
+   1000 Sherbrooke West
+   Montreal  H3A 3G4
+   Canada
+
+   Email: xavier.defoy@interdigital.com
 
 
 
@@ -1733,4 +2049,24 @@ Authors' Addresses
 
 
 
-Kunze, et al.           Expires February 21, 2022              [Page 31]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kunze, et al.           Expires February 21, 2022              [Page 37]

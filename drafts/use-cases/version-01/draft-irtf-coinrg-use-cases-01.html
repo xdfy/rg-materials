@@ -435,6 +435,12 @@
 <link href="#rfc.section.6.3.3" rel="Chapter" title="6.3.3 Existing Solutions">
 <link href="#rfc.section.6.3.4" rel="Chapter" title="6.3.4 Opportunities and Research Questions for COIN">
 <link href="#rfc.section.6.3.5" rel="Chapter" title="6.3.5 Requirements">
+<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Virtual Networks Programming">
+<link href="#rfc.section.6.4.1" rel="Chapter" title="6.4.1 Description">
+<link href="#rfc.section.6.4.2" rel="Chapter" title="6.4.2 Characterization">
+<link href="#rfc.section.6.4.3" rel="Chapter" title="6.4.3 Existing Solutions">
+<link href="#rfc.section.6.4.4" rel="Chapter" title="6.4.4 Opportunities and Research Questions for COIN">
+<link href="#rfc.section.6.4.5" rel="Chapter" title="6.4.5 Requirements">
 <link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations">
 <link href="#rfc.section.8" rel="Chapter" title="8 IANA Considerations">
 <link href="#rfc.section.9" rel="Chapter" title="9 Conclusion">
@@ -448,8 +454,8 @@
   <meta name="generator" content="xml2rfc version 2.44.0 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Kunze, I., Wehrle, K., Trossen, D., and M. Montpetit" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-coinrg-use-cases-00" />
+  <meta name="dct.creator" content="Kunze, I., Wehrle, K., Trossen, D., Montpetit, M., and X. de Foy" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-coinrg-use-cases-01" />
   <meta name="dct.issued" scheme="ISO8601" content="2021-20" />
   <meta name="dct.abstract" content="Computing in the Network (COIN) comes with the prospect of deploying processing functionality on networking devices, such as switches and network interface cards.  While such functionality can be beneficial in several contexts, it has to be carefully placed into the context of the general Internet communication.  This document discusses some use cases to demonstrate how real applications can benefit from COIN and to showcase essential requirements that have to be fulfilled by COIN applications. " />
   <meta name="description" content="Computing in the Network (COIN) comes with the prospect of deploying processing functionality on networking devices, such as switches and network interface cards.  While such functionality can be beneficial in several contexts, it has to be carefully placed into the context of the general Internet communication.  This document discusses some use cases to demonstrate how real applications can benefit from COIN and to showcase essential requirements that have to be fulfilled by COIN applications. " />
@@ -491,6 +497,14 @@
 </tr>
 <tr>
 <td class="left"></td>
+<td class="right">X. de Foy</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">InterDigital Communications, LLC</td>
+</tr>
+<tr>
+<td class="left"></td>
 <td class="right">August 20, 2021</td>
 </tr>
 
@@ -499,7 +513,7 @@
   </table>
 
   <p class="title">Use Cases for In-Network Computing<br />
-  <span class="filename">draft-irtf-coinrg-use-cases-00</span></p>
+  <span class="filename">draft-irtf-coinrg-use-cases-01</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>Computing in the Network (COIN) comes with the prospect of deploying processing functionality on networking devices, such as switches and network interface cards.  While such functionality can be beneficial in several contexts, it has to be carefully placed into the context of the general Internet communication.  This document discusses some use cases to demonstrate how real applications can benefit from COIN and to showcase essential requirements that have to be fulfilled by COIN applications.</p>
@@ -638,6 +652,18 @@
 <li>6.3.4.   <a href="#rfc.section.6.3.4">Opportunities and Research Questions for COIN</a>
 </li>
 <li>6.3.5.   <a href="#rfc.section.6.3.5">Requirements</a>
+</li>
+</ul><li>6.4.   <a href="#rfc.section.6.4">Virtual Networks Programming</a>
+</li>
+<ul><li>6.4.1.   <a href="#rfc.section.6.4.1">Description</a>
+</li>
+<li>6.4.2.   <a href="#rfc.section.6.4.2">Characterization</a>
+</li>
+<li>6.4.3.   <a href="#rfc.section.6.4.3">Existing Solutions</a>
+</li>
+<li>6.4.4.   <a href="#rfc.section.6.4.4">Opportunities and Research Questions for COIN</a>
+</li>
+<li>6.4.5.   <a href="#rfc.section.6.4.5">Requirements</a>
 </li>
 </ul></ul><li>7.   <a href="#rfc.section.7">Security Considerations</a>
 </li>
@@ -1234,6 +1260,139 @@
 <p id="rfc.section.6.3.5.p.2">Req 6.3.2: Any app-specific execution environment SHOULD allow for dynamic integration of compute resources into the compute fabric being utilized for the app execution; those resources include, but are not limited to, end user provided resources.</p>
 <p id="rfc.section.6.3.5.p.3">Req 6.3.3: Any app-specific execution environment MUST provide means to optimize the inter-connection of compute resources, including those dynamically added and removed during the provisioning of the tenant-specific compute fabric.</p>
 <p id="rfc.section.6.3.5.p.4">Req 6.3.4: Any app-specific execution environment MUST provide means for ensuring availability and usage of resources is accounted for.</p>
+<h2 id="rfc.section.6.4">
+<a href="#rfc.section.6.4">6.4.</a> <a href="#virtual-networks-programming" id="virtual-networks-programming">Virtual Networks Programming</a>
+</h2>
+<h3 id="rfc.section.6.4.1">
+<a href="#rfc.section.6.4.1">6.4.1.</a> <a href="#description-8" id="description-8">Description</a>
+</h3>
+<p id="rfc.section.6.4.1.p.1">The term &#8220;virtual network programming&#8221; is proposed to describe mechanisms by which tenants deploy and operate network programs in their virtual network.  Network programs can be any in-network programs, for example P4 programs, OpenFlow rules, or higher layer programs.  This feature can enable other use cases described in this draft to be deployed using virtual networks services, over underlying networks such as datacenters, mobile networks, or other fixed or wireless networks.</p>
+<p id="rfc.section.6.4.1.p.2">Virtual network programming by tenants could bring benefits such as:</p>
+<p></p>
+
+<ul>
+<li>A unified programming model, which can facilitate porting in-network computing between data centers, 5G networks, and other fixed and wireless networks, as well as sharing controller, code and expertise.</li>
+<li>Increasing the level of customization available to customers/tenants of mobile networks or datacenters, when compared with typical configuration capabilities. For example, 5G network evolution points to an ever increasing specialization and customization of private mobile networks, which could be handled by tenants using a programming model similar to P4.</li>
+<li>Using network programs to influence underlying network service (e.g., request specific QoS for some flows in 5G or datacenters), to increases the level of in-depth customization available to tenants.</li>
+</ul>
+<p id="rfc.section.6.4.1.p.4">For example P4 programs could perform the following on a tenant&#8217;s virtual network:</p>
+<p></p>
+
+<ul>
+<li>Allow or block flows, and request rules from an SDN controller for each new flow, or for flows to or from specific hosts that needs enhanced security</li>
+<li>Forward a copy of some flows towards a node for storage and analysis</li>
+<li>Update counters based on specific sources/destinations or protocols, for detailed analytics</li>
+<li>Associate traffic between specific endpoints, using specific protocols, or originated from a given application, to a given slice, while other traffic use a default slice</li>
+<li>Experiment with a new routing protocol (e.g., ICN), using a P4 implementation of a router for this protocol</li>
+</ul>
+<h3 id="rfc.section.6.4.2">
+<a href="#rfc.section.6.4.2">6.4.2.</a> <a href="#characterization-8" id="characterization-8">Characterization</a>
+</h3>
+<p id="rfc.section.6.4.2.p.1">To provide a concrete example of virtual network programming, we consider a use case using a 5G underlying network, and the 5GLAN virtualization technology.  Section 5.1 of <a href="#I-D.ravi-icnrg-5gc-icn" class="xref">[I-D.ravi-icnrg-5gc-icn]</a> provides a description of the 5G network functions and interfaces relevant to 5GLAN, which are otherwise specified in <a href="#TS23.501" class="xref">[TS23.501]</a> and <a href="#TS23.502" class="xref">[TS23.502]</a>.  From the 5GLAN service customer/tenant standpoint, the 5G network operates as a switch.</p>
+<p id="rfc.section.6.4.2.p.2">In the use case depicted in <a href="#figureVN1" class="xref">Figure 4</a>, the tenant operates a network including a 5GLAN network segment (seen as a single logical switch), as well as fixed segments.  This can be in a plant or enterprise network, using for an example a 5G Non-Public Network (NPN).  The tenant uses P4 programs to determine the operation of the fixed and 5GLAN switches.  The tenant provisions a 5GLAN P4 program into the mobile network, and can also operate a controller.  The mobile devices (or User Equipment nodes) UE1, UE2, UE3 and UE4 are in the same 5GLAN, as well as Device1 and Device2 (through UE4).</p>
+<div id="rfc.figure.4"></div>
+<div id="figureVN1"></div>
+<pre>
+                                     ..... Tenant ........
+                          P4 program :                   :
+                          deployment :         Operation :
+                                     V                   :
+  +-----+  air interface +----------------+              :
+  | UE1 +----------------+                |              :
+  +-----+                |                |              :
+                         |                |              :
+  +-----+                |                |              V
+  | UE2 +----------------+     5GLAN      |      +------------+
+  +-----+                |    Logical     +------+ Controller |
+                         |     Switch     |  P4  +-------+----+
+  +-----+                |                |  runtime     |
+  | UE3 +----------------+                |  API         |
+  +-----+                |                |              |
+                         |                |              |
+  +-----+                |                |              |
++-+ UE4 +----------------+                |              |
+| +-----+                +----------------+              |
+|                                                        |
+| Fixed or wireless connection                           |
+|                                    P4 runtime API      |
+|  +---------+           +-------------------------------+
++--+ Device1 |           |
+|  +---------+           |
+|                        |
+|  +---------+    +------+-----+
+`--+ Device2 +----+ P4 Switch  +---&gt;(fixed network)
+   +---------+    +------------+
+</pre>
+<p class="figure">Figure 4: 5G Virtual Network Programming Overview</p>
+<p id="rfc.section.6.4.2.p.3">Looking in more details in <a href="#figureVN2" class="xref">Figure 5</a>, the 5GLAN P4 program can be split between multiple data plane nodes (PDU Session Anchor (PSA) User Plane Functions (UPF), other UPFs, or even mobile devices), although in some cases the P4 program may be hosted on a single node.  In the most general case, a distributed deployment is useful to keep traffic on optimal paths, because, except in simple cases, within a 5GLAN all traffic will not pass through a single node.  In this example, P4 programs could be deployed in UPF1, UPF2, UPF3, UE3 and UE4.  UE1-UE2 traffic is using a local switch on PSA UPF1, UE1-UE3 traffic is tunneled between PSA UPF1 and PSA UPF2 through the N19 interface, and UE1-UE4 traffic is forwarded through an external Data Network (DN).  Traffic between Device1 and Device2 is forwarded through UE4.</p>
+<div id="rfc.figure.5"></div>
+<div id="figureVN2"></div>
+<pre>
+                         +-----+          +-----+      +------------+
+                         | AMF |          | SMF |      | Controller |
+                         +-+-+-+          +--+--+      +-----+------+
+                          /  |               |             P4|
+               +---------+   |             N4|        Runtime|
+          N1  /              |N2             |               V
+      +------+               |               |     (all P4 programs*)
+     /                       |               |
+  +--+--+  air interface +---+-----+ N3 +-+--+----------+  N6  +----+
+  | UE1 +----------------+  (R)AN  +----+   PSA UPF1*   +-----&gt;+    |
+  +-----+                +---------+    +-+-------+-----+      |    |
+     |                       |            |  |    |            |    |
+  +--+--+                +---+-----+      |  |    |            |    |
+  | UE2 +----------------+  (R)AN  +------'  |    | N19        | DN |
+  +-----+                +---------+         |    |            |    |
+     |                       |               |    |            |    |
+  +--+--+                +---+-----+    +----+----+-----+      |    |
+  | UE3*+----------------+  (R)AN  +----+    PSA UPF2*  +      |    |
+  +-----+                +---------+    +---------+-----+      |    |
+     |                       |               |    | N19        |    |
+  +--+--+                +---+-----+    +----+----+-----+  N6  |    |
++-+ UE4*+----------------+  (R)AN  +----+    PSA UPF3*  +-----&gt;+    |
+| +-----+                +---------+    +---------------+      +----+
+|
+| Fixed or wireless connection
+|
+|  +---------+
++--+ Device1 |           (* indicates the presence of a P4 program)
+|  +---------+
+|
+|  +---------+    +------------+
+`--+ Device2 +----+ P4 Switch* +---&gt;(fixed network)
+   +---------+    +------------+
+</pre>
+<p class="figure">Figure 5: 5G Virtual Network Programming Details</p>
+<h3 id="rfc.section.6.4.3">
+<a href="#rfc.section.6.4.3">6.4.3.</a> <a href="#existing-solutions-9" id="existing-solutions-9">Existing Solutions</a>
+</h3>
+<p id="rfc.section.6.4.3.p.1">NOTE: material on solutions may be added later</p>
+<h3 id="rfc.section.6.4.4">
+<a href="#rfc.section.6.4.4">6.4.4.</a> <a href="#opportunities-and-research-questions-for-coin-9" id="opportunities-and-research-questions-for-coin-9">Opportunities and Research Questions for COIN</a>
+</h3>
+<p id="rfc.section.6.4.4.p.1">Opportunities:</p>
+<p></p>
+
+<ul><li>Underlying Network Awareness: a P4 program can be able to influence, and be influenced by, the underling network (e.g., the 5G network or data center). For example, a P4 program may be aware of the slice used by a flow, and possibly influence slice selection. Since some information and actions may be available on some nodes and not others, underlying network awareness may impose additional constraints on distributed network programs location.</li></ul>
+<p id="rfc.section.6.4.4.p.3">Research Questions:</p>
+<p></p>
+
+<ul>
+<li>Splitting/Distribution: a virtual network program may need to be deployed across multiple computing nodes, leading to research questions around instance placement and distribution. As a primary reason for this, network program logic should be applied exactly once or at least once per packet, while allowing optimal forwarding path by the underlying network. For example, a 5GLAN P4 program may need to run on multiple UPFs. Research challenges include defining manual (by the programmer) or automatic methods to distribute network programs that use a low or minimal amount of resources. Distributed P4 programs are studied in <a href="#I-D.hsingh-coinrg-reqs-p4comp" class="xref">[I-D.hsingh-coinrg-reqs-p4comp]</a> and <a href="#Sultana" class="xref">[Sultana]</a>.</li>
+<li>Multi-Tenancy Support: multiple virtual network program instances can run on the same compute node. While mechanism were proposed for P4 multi-tenancy in a switch <a href="#Stoyanov" class="xref">[Stoyanov]</a>, research questions remains, about isolation between tenants, fair repartition of resources.</li>
+<li>Security: how can tenants and underlying networks be protected against security risks, including overuse or misuse of network resources, injection of traffic, access to unauthorized traffic?</li>
+<li>Higher layer processing: can a virtual network model facilitate the deployment of network programs acting on application layer data? This is an open question since the present section focused on packet/flow processing.</li>
+</ul>
+<h3 id="rfc.section.6.4.5">
+<a href="#rfc.section.6.4.5">6.4.5.</a> <a href="#requirements-9" id="requirements-9">Requirements</a>
+</h3>
+<p></p>
+
+<ul>
+<li>Req 6.3.1: A virtual network program should process flows/packets once and only once (or at least once for idempotent operations), even if the program is distributed over multiple computing nodes.</li>
+<li>Req 6.3.2: Multi-tenancy should be supported for virtual network programs, i.e. instances of virtual network programs from different tenants can share underlying network computing nodes. This includes requirements for secure isolation between tenants, and fair (or policy-based) sharing of computing resources.</li>
+<li>Req 6.3.3: Virtual network programs should support mobility of endpoints.</li>
+</ul>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#sec_considerations" id="sec_considerations">Security Considerations</a>
 </h1>
@@ -1296,9 +1455,19 @@
 <a title="RWTH Aachen University">Fink, I. B.</a> and <a title="RWTH Aachen University">K. Wehrle</a>, "<a href="https://tools.ietf.org/html/draft-fink-coin-sec-priv-02">Enhancing Security and Privacy with In-Network Computing</a>", Internet-Draft draft-fink-coin-sec-priv-02, March 2021.</td>
 </tr>
 <tr>
+<td class="reference"><b id="I-D.hsingh-coinrg-reqs-p4comp">[I-D.hsingh-coinrg-reqs-p4comp]</b></td>
+<td class="top">
+<a title="MNK Labs and Consulting">Singh, H.</a> and <a title="Concordia Univeristy">M. Montpetit</a>, "<a href="https://tools.ietf.org/html/draft-hsingh-coinrg-reqs-p4comp-03">Requirements for P4 Program Splitting for Heterogeneous Network Nodes</a>", Internet-Draft draft-hsingh-coinrg-reqs-p4comp-03, February 2021.</td>
+</tr>
+<tr>
 <td class="reference"><b id="I-D.mcbride-edge-data-discovery-overview">[I-D.mcbride-edge-data-discovery-overview]</b></td>
 <td class="top">
 <a title="Futurewei">McBride, M.</a>, <a title="Emden University">Kutscher, D.</a>, <a title="Intel">Schooler, E.</a>, <a title="Universidad Carlos III de Madrid">Bernardos, C. J.</a>, <a title="Telefonica">Lopez, D. R.</a> and <a title="InterDigital Communications, LLC">X. D. Foy</a>, "<a href="https://tools.ietf.org/html/draft-mcbride-edge-data-discovery-overview-05">Edge Data Discovery for COIN</a>", Internet-Draft draft-mcbride-edge-data-discovery-overview-05, November 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="I-D.ravi-icnrg-5gc-icn">[I-D.ravi-icnrg-5gc-icn]</b></td>
+<td class="top">
+<a title="Futurewei Technologies">Ravindran, R.</a>, <a title="Cisco Systems">Suthar, P.</a>, <a title="InterDigital Inc.">Trossen, D.</a>, <a title="InterDigital Inc.">Wang, C.</a> and <a title="CableLabs">G. White</a>, "<a href="https://tools.ietf.org/html/draft-ravi-icnrg-5gc-icn-04">Enabling ICN in 3GPP's 5G NextGen Core Architecture</a>", Internet-Draft draft-ravi-icnrg-5gc-icn-04, May 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="ICE">[ICE]</b></td>
@@ -1324,6 +1493,26 @@
 <td class="reference"><b id="SAPIO">[SAPIO]</b></td>
 <td class="top">
 <a>Sapio, A.</a>, "<a href="https://arxiv.org/abs/1903.06701">Scaling Distributed Machine Learning with In-Network Aggregation</a>", 2019.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Stoyanov">[Stoyanov]</b></td>
+<td class="top">
+<a>Stoyanov, R.</a> and <a>N. Zilberman</a>, "<a href="https://eng.ox.ac.uk/media/6354/stoyanov2020mtpsa.pdf">MTPSA: Multi-Tenant Programmable Switches</a>", ACM P4 Workshop in Europe (EuroP4'20) , 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Sultana">[Sultana]</b></td>
+<td class="top">
+<a>Sultana, N.</a>, <a>Sonchack, J.</a>, <a>Giesen, H.</a>, <a>Pedisich, I.</a>, <a>Han, Z.</a>, <a>Shyamkumar, N.</a>, <a>Burad, S.</a>, <a>DeHon, A.</a> and <a>B. Loo</a>, "<a href="https://flightplan.cis.upenn.edu/flightplan.pdf">Flightplan: Dataplane Disaggregation and Placement for P4 Programs</a>", 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="TS23.501">[TS23.501]</b></td>
+<td class="top">
+<a>501, 3gpp-23.</a>, "<a href="https://www.3gpp.org/DynaReport/23501.htm">Technical Specification Group Services and System Aspects; System Architecture for the 5G System; Stage 2 (Rel.17)</a>", 3GPP , 2021.</td>
+</tr>
+<tr>
+<td class="reference"><b id="TS23.502">[TS23.502]</b></td>
+<td class="top">
+<a>502, 3gpp-23.</a>, "<a href="https://www.3gpp.org/DynaReport/23502.htm">Technical Specification Group Services and System Aspects; Procedures for the 5G System; Stage 2 (Rel.17)</a>", 3GPP , 2021.</td>
 </tr>
 <tr>
 <td class="reference"><b id="TSN">[TSN]</b></td>
@@ -1421,6 +1610,28 @@
 	  <span class="country-name vcardline">Canada</span>
 	</span>
 	<span class="vcardline">EMail: <a href="mailto:marie@mjmontpetit.com">marie@mjmontpetit.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Xavier de Foy</span> 
+	  <span class="n hidden">
+		<span class="family-name">de Foy</span>
+	  </span>
+	</span>
+	<span class="org vcardline">InterDigital Communications, LLC</span>
+	<span class="adr">
+	  <span class="vcardline">1000 Sherbrooke West</span>
+
+	  <span class="vcardline">
+		<span class="locality">Montreal</span>,  
+		<span class="region"></span>
+		<span class="code">H3A 3G4</span>
+	  </span>
+	  <span class="country-name vcardline">Canada</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:xavier.defoy@interdigital.com">xavier.defoy@interdigital.com</a></span>
 
   </address>
 </div>
